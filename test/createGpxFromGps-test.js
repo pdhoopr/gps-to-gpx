@@ -48,7 +48,7 @@ describe('createGpxFromGps', () => {
       );
     });
 
-    it('should throw an error if "activity" is of a type other than "string"', () => {
+    it('should throw an error if "activity" is not a String', () => {
       expect(() => createGpxFromGps(1, 'time', [{}])).to.throw(Error,
         `createGpxFromGps expected the parameters (activity, time, data) to exist and be of the ` +
         `correct type, but the following were invalid: activity. ` +
@@ -57,7 +57,7 @@ describe('createGpxFromGps', () => {
       );
     });
 
-    it('should throw an error if "time" is of a type other than "string"', () => {
+    it('should throw an error if "time" is not a String', () => {
       expect(() => createGpxFromGps('activity', true, [{}])).to.throw(Error,
         `createGpxFromGps expected the parameters (activity, time, data) to exist and be of the ` +
         `correct type, but the following were invalid: time. ` +
@@ -66,7 +66,7 @@ describe('createGpxFromGps', () => {
       );
     });
 
-    it('should throw an error if "data" is of a type other than "array"', () => {
+    it('should throw an error if "data" is not an Array', () => {
       expect(() => createGpxFromGps('activity', 'time', {})).to.throw(Error,
         `createGpxFromGps expected the parameters (activity, time, data) to exist and be of the ` +
         `correct type, but the following were invalid: data. ` +
@@ -83,5 +83,19 @@ describe('createGpxFromGps', () => {
         `(activity: String, time: String, data: Array) when you called the function?`
       );
     });
+  });
+
+  it('should render an xml element when valid', () => {
+    expect(createGpxFromGps('activity', 'time', [{}])).to.match(/^<\?xml.*\?>/);
+  });
+
+  it('should render a gpx element when valid', () => {
+    expect(createGpxFromGps('activity', 'time', [{}])).to.match(/<gpx.*>[\s\S]*<\/gpx>/);
+  });
+
+  it('should render a metadata element with name "Activity" and time as the provided time', () => {
+    expect(createGpxFromGps('activity', '2015-07-20T23:30:49Z', [{}])).to.match(
+      /<metadata>\s*<name>Activity<\/name>\s*<time>2015-07-20T23:30:49Z<\/time>\s*<\/metadata>/
+    );
   });
 });
