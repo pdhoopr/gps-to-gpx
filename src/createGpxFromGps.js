@@ -1,15 +1,8 @@
+// Vendor (3rd-party) imports
 import xmlBuilder from 'xmlbuilder';
 
-function doesArgExist(argValue) {
-  return argValue !== undefined && argValue !== null;
-}
-
-function isArgCorrectType(argValue, type) {
-  const argTypeMatch = Object.prototype.toString.call(argValue).match(/\[object (.+)\]/i);
-  const argType = argTypeMatch.length ? argTypeMatch[1] : 'undefined';
-
-  return argType === type;
-}
+// Module imports
+import { doesArgExist, isArgCorrectType } from './utils/validateArgs.js';
 
 function assertArgsAreValid(activity, time, data) {
   const invalidArgs = [];
@@ -29,9 +22,9 @@ function assertArgsAreValid(activity, time, data) {
   if (invalidArgs.length) {
     throw new Error(
       `createGpxFromGps expected the parameters (activity, time, data) to exist and be of the ` +
-      `correct type, but the following were invalid: ${invalidArgs.join(', ')}. Did you pass ` +
-      `arguments that satisfy the order and types (activity: String, time: String, data: Array) ` +
-      `when you called the function?`
+      `correct type, but the following were invalid: ${invalidArgs.join(', ')}. ` +
+      `Did you pass arguments that satisfy the order and types ` +
+      `(activity: String, time: String, data: Array) when you called the function?`
     );
   }
 
