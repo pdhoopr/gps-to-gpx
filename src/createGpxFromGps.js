@@ -4,35 +4,35 @@ import xmlBuilder from 'xmlbuilder';
 // Module imports
 import { doesArgExist, isArgCorrectType } from './utils/validateArgs.js';
 
-function assertArgsAreValid(activity, time, data) {
+function assertArgsAreValid(time, waypoints, activityName) {
   const invalidArgs = [];
-
-  if (!doesArgExist(activity) || !isArgCorrectType(activity, 'String')) {
-    invalidArgs.push('activity');
-  }
 
   if (!doesArgExist(time) || !isArgCorrectType(time, 'String')) {
     invalidArgs.push('time');
   }
 
-  if (!doesArgExist(data) || !isArgCorrectType(data, 'Array') || !data.length) {
-    invalidArgs.push('data');
+  if (!doesArgExist(waypoints) || !isArgCorrectType(waypoints, 'Array') || !waypoints.length) {
+    invalidArgs.push('waypoints');
+  }
+
+  if (!doesArgExist(activityName) || !isArgCorrectType(activityName, 'String')) {
+    invalidArgs.push('activityName');
   }
 
   if (invalidArgs.length) {
     throw new Error(
-      `createGpxFromGps expected the parameters (activity, time, data) to exist and be of the ` +
-      `correct type, but the following were invalid: ${invalidArgs.join(', ')}. ` +
+      `createGpxFromGps expected the parameters (time, waypoints, activityName) to exist and ` +
+      `be of the correct type, but the following were invalid: ${invalidArgs.join(', ')}. ` +
       `Did you pass arguments that satisfy the order and types ` +
-      `(activity: String, time: String, data: Array) when you called the function?`
+      `(time: String, waypoints: Array, activityName: String) when you called the function?`
     );
   }
 
   return;
 }
 
-export default function createGpxFromGps(activity, time, data) {
-  assertArgsAreValid(activity, time, data);
+export default function createGpxFromGps(time, waypoints, activityName = 'Other') {
+  assertArgsAreValid(time, waypoints, activityName);
 
   const gpx = xmlBuilder
     .create('gpx', {
@@ -55,8 +55,8 @@ export default function createGpxFromGps(activity, time, data) {
   metadata.ele('name', 'Activity');
   metadata.ele('time', time);
 
-  const track = gpx.ele('trk');
-  track.ele('name', activity);
+  const trk = gpx.ele('trk');
+  trk.ele('name', activityName);
 
   return gpx.end({
     allowEmpty: true,

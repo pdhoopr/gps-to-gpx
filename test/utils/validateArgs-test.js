@@ -3,7 +3,7 @@ import { doesArgExist, isArgCorrectType } from '../../src/utils/validateArgs';
 
 describe('validateArgs', () => {
   describe('doesArgExist', () => {
-    it('should return false if "argValue" is not provided (i.e. undefined)', () => {
+    it('should return false if "argValue" is undefined', () => {
       expect(doesArgExist()).to.be.false;
     });
 
@@ -21,7 +21,7 @@ describe('validateArgs', () => {
   });
 
   describe('isArgCorrectType', () => {
-    it('should return false when "argValue" is a String and "type" is a Number', () => {
+    it('should return false when "argValue" type (String) is not "type" (Number)', () => {
       expect(isArgCorrectType('argValue', 'Number')).to.be.false;
     });
 
