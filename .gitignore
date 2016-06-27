@@ -1,5 +1,6 @@
 *.log
 coverage/
+data/
 dist/
 es/
 lib/
