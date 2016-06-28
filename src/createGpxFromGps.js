@@ -4,7 +4,7 @@ import xmlBuilder from 'xmlbuilder';
 // Module imports
 import { doesExist, getType } from './utils';
 
-export default function createGpxFromGps(waypoints) {
+function assertArgValidity(waypoints, options) {
   if (!doesExist(waypoints) || getType(waypoints) !== 'array' || !waypoints.length) {
     throw new Error(
       'createGpxFromGps expected the parameter "waypoints" to exist and be a non-empty array, ' +
@@ -12,6 +12,21 @@ export default function createGpxFromGps(waypoints) {
       '(not undefined, null or empty) as the first argument when you called the function?'
     );
   }
+
+  if (getType(options) !== 'object') {
+    throw new Error(
+      `createGpxFromGps expected the parameter "options" to be an object, but instead it was ` +
+      `the type "${getType(options)}". Did you pass an object literal of additional options ` +
+      `as the second argument when you called the function? "options" is not a required ` +
+      `parameter, so unless you need to override some default settings, you can leave it blank.`
+    );
+  }
+
+  return;
+}
+
+export default function createGpxFromGps(waypoints, options = {}) {
+  assertArgValidity(waypoints, options);
 
   const gpx = xmlBuilder
     .create('gpx', {
