@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { doesExist, isCorrectType } from '../src/utils';
+import { doesExist, getType } from '../src/utils';
 
 describe('utils', () => {
   describe('doesExist', () => {
@@ -20,33 +20,41 @@ describe('utils', () => {
     });
   });
 
-  describe('isCorrectType', () => {
-    it('should return false when "value" type (string) is not "expectedType" (number)', () => {
-      expect(isCorrectType('value', 'number')).to.be.false;
+  describe('getType', () => {
+    it('should return array when "value" is an array', () => {
+      expect(getType([])).to.equal('array');
     });
 
-    it('should return true when "expectedType" is not all lowercase', () => {
-      expect(isCorrectType([], 'ArRaY')).to.be.true;
+    it('should return boolean when "value" is a boolean', () => {
+      expect(getType(true)).to.equal('boolean');
     });
 
-    it('should return true for an array', () => {
-      expect(isCorrectType([], 'array')).to.be.true;
+    it('should return function when "value" is a function', () => {
+      expect(getType(() => 'function')).to.equal('function');
     });
 
-    it('should return true for a boolean', () => {
-      expect(isCorrectType(true, 'boolean')).to.be.true;
+    it('should return null when "value" is null', () => {
+      expect(getType(null)).to.equal('null');
     });
 
-    it('should return true for a number', () => {
-      expect(isCorrectType(1, 'number')).to.be.true;
+    it('should return number when "value" is a number', () => {
+      expect(getType(1)).to.equal('number');
     });
 
-    it('should return true for an object literal', () => {
-      expect(isCorrectType({}, 'object')).to.be.true;
+    it('should return object when "value" is an object literal', () => {
+      expect(getType({})).to.equal('object');
     });
 
-    it('should return true for a string', () => {
-      expect(isCorrectType('string', 'string')).to.be.true;
+    it('should return string when "value" is a string', () => {
+      expect(getType('string')).to.equal('string');
+    });
+
+    it('should return symbol when "value" is a symbol', () => {
+      expect(getType(Symbol())).to.equal('symbol');
+    });
+
+    it('should return undefined when "value" is undefined', () => {
+      expect(getType()).to.equal('undefined');
     });
   });
 });

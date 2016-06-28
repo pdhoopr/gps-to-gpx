@@ -2,10 +2,10 @@
 import xmlBuilder from 'xmlbuilder';
 
 // Module imports
-import { doesExist, isCorrectType } from './utils';
+import { doesExist, getType } from './utils';
 
 export default function createGpxFromGps(waypoints) {
-  if (!doesExist(waypoints) || !isCorrectType(waypoints, 'array') || !waypoints.length) {
+  if (!doesExist(waypoints) || getType(waypoints) !== 'array' || !waypoints.length) {
     throw new Error(
       'createGpxFromGps expected the parameter "waypoints" to exist and be a non-empty array, ' +
       'but something was wrong with the provided data. Did you pass an array of waypoints ' +
