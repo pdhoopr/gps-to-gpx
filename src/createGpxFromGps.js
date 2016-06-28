@@ -28,6 +28,18 @@ function assertArgValidity(waypoints, options) {
 export default function createGpxFromGps(waypoints, options = {}) {
   assertArgValidity(waypoints, options);
 
+  let settings = {
+    activityName: 'Other',
+    coordinateKeys: {
+      ele: 'elevation',
+      lat: 'latitude',
+      lon: 'longitude',
+      time: 'time',
+    },
+    startTime: null,
+  };
+  settings = Object.assign(settings, options);
+
   const gpx = xmlBuilder
     .create('gpx', {
       encoding: 'UTF-8',
@@ -47,6 +59,12 @@ export default function createGpxFromGps(waypoints, options = {}) {
 
   const metadata = gpx.ele('metadata');
   metadata.ele('name', 'Activity');
+  if (settings.startTime) {
+    metadata.ele('time', settings.startTime);
+  }
+
+  const trk = gpx.ele('trk');
+  trk.ele('name', settings.activityName);
 
   return gpx.end({
     allowEmpty: true,

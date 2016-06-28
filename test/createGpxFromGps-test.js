@@ -74,21 +74,37 @@ describe('createGpxFromGps', () => {
     expect(createGpxFromGps([{}])).to.match(/<gpx.*>[\s\S]*<\/gpx>/);
   });
 
-  // it('should render a metadata element with name "Activity" and time as the provided time', () => {
-  //   expect(createGpxFromGps('2015-07-20T23:30:49Z', [{}])).to.match(
-  //     /<metadata>\s*<name>Activity<\/name>\s*<time>2015-07-20T23:30:49Z<\/time>\s*<\/metadata>/
-  //   );
-  // });
-  //
-  // it('should render a trk element with name as the default activityName', () => {
-  //   expect(createGpxFromGps('2015-07-20T23:30:49Z', [{}])).to.match(
-  //     /<trk>\s*<name>Other<\/name>[\s\S]*<\/trk>/
-  //   );
-  // });
-  //
-  // it('should render a trk element with name as the provided activityName', () => {
-  //   expect(createGpxFromGps('2015-07-20T23:30:49Z', [{}], 'RUN')).to.match(
-  //     /<trk>\s*<name>RUN<\/name>[\s\S]*<\/trk>/
-  //   );
-  // });
+  it('should render a metadata element with name as "Activity"', () => {
+    expect(createGpxFromGps([{}])).to.match(
+      /<metadata>[\s\S]*<name>Activity<\/name>[\s\S]*<\/metadata>/
+    );
+  });
+
+  it('should render a metadata element without time if "startTime" setting is not provided', () => {
+    expect(createGpxFromGps([{}])).to.not.match(
+      /<metadata>[\s\S]*<time>.*<\/time>[\s\S]*<\/metadata>/
+    );
+  });
+
+  it('should render a metadata element with time as "startTime" setting when provided', () => {
+    expect(createGpxFromGps([{}], {
+      startTime: '2015-07-20T23:30:49Z',
+    })).to.match(
+      /<metadata>[\s\S]*<time>2015-07-20T23:30:49Z<\/time>[\s\S]*<\/metadata>/
+    );
+  });
+
+  it('should render a trk element with name as default "activityName" setting', () => {
+    expect(createGpxFromGps([{}])).to.match(
+      /<trk>[\s\S]*<name>Other<\/name>[\s\S]*<\/trk>/
+    );
+  });
+
+  it('should render a trk element with name as "activityName" setting when provided', () => {
+    expect(createGpxFromGps([{}], {
+      activityName: 'RUN',
+    })).to.match(
+      /<trk>[\s\S]*<name>RUN<\/name>[\s\S]*<\/trk>/
+    );
+  });
 });
