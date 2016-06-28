@@ -2,37 +2,16 @@
 import xmlBuilder from 'xmlbuilder';
 
 // Module imports
-import { doesArgExist, isArgCorrectType } from './utils/validateArgs.js';
+import { doesExist, isCorrectType } from './utils';
 
-function assertArgsAreValid(time, waypoints, activityName) {
-  const invalidArgs = [];
-
-  if (!doesArgExist(time) || !isArgCorrectType(time, 'String')) {
-    invalidArgs.push('time');
-  }
-
-  if (!doesArgExist(waypoints) || !isArgCorrectType(waypoints, 'Array') || !waypoints.length) {
-    invalidArgs.push('waypoints');
-  }
-
-  if (!doesArgExist(activityName) || !isArgCorrectType(activityName, 'String')) {
-    invalidArgs.push('activityName');
-  }
-
-  if (invalidArgs.length) {
+export default function createGpxFromGps(waypoints) {
+  if (!doesExist(waypoints) || !isCorrectType(waypoints, 'array') || !waypoints.length) {
     throw new Error(
-      `createGpxFromGps expected the parameters (time, waypoints, activityName) to exist and ` +
-      `be of the correct type, but the following were invalid: ${invalidArgs.join(', ')}. ` +
-      `Did you pass arguments that satisfy the order and types ` +
-      `(time: String, waypoints: Array, activityName: String) when you called the function?`
+      'createGpxFromGps expected the parameter "waypoints" to exist and be a non-empty array, ' +
+      'but something was wrong with the provided data. Did you pass an array of waypoints ' +
+      '(not undefined, null or empty) as the first argument when you called the function?'
     );
   }
-
-  return;
-}
-
-export default function createGpxFromGps(time, waypoints, activityName = 'Other') {
-  assertArgsAreValid(time, waypoints, activityName);
 
   const gpx = xmlBuilder
     .create('gpx', {
@@ -53,10 +32,6 @@ export default function createGpxFromGps(time, waypoints, activityName = 'Other'
 
   const metadata = gpx.ele('metadata');
   metadata.ele('name', 'Activity');
-  metadata.ele('time', time);
-
-  const trk = gpx.ele('trk');
-  trk.ele('name', activityName);
 
   return gpx.end({
     allowEmpty: true,
