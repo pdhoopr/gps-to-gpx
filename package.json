@@ -12,24 +12,35 @@
     "email": "patrick.d.hooper@gmail.com",
     "url": "http://patrick.hoopr.io"
   },
+  "files": [
+    "*.md",
+    "dist",
+    "es",
+    "lib",
+    "src"
+  ],
   "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/impatrickhooper/gps-to-gpx"
   },
   "scripts": {
-    "start": "cross-env BABEL_ENV=commonjs babel src --watch --out-dir lib",
-    "lint": "eslint src test",
-    "test": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register --recursive",
-    "test:watch": "npm test -- --watch",
+    "build:commonjs": "npm run clean:commonjs && cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build:es": "npm run clean:es && cross-env BABEL_ENV=es babel src --out-dir es",
+    "build:umd": "npm run clean:umd && cross-env BABEL_ENV=commonjs NODE_ENV=development webpack src/index.js dist/gps-to-gpx.js && cross-env BABEL_ENV=commonjs NODE_ENV=production webpack src/index.js dist/gps-to-gpx.min.js",
+    "build": "npm-run-all --parallel build:*",
     "clean:commonjs": "rimraf lib",
     "clean:es": "rimraf es",
     "clean:umd": "rimraf dist",
     "clean": "npm-run-all --parallel clean:*",
-    "build:commonjs": "npm run clean:commonjs && cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-    "build:es": "npm run clean:es && cross-env BABEL_ENV=es babel src --out-dir es",
-    "build:umd": "npm run clean:umd && cross-env BABEL_ENV=commonjs NODE_ENV=development webpack src/index.js dist/gps-to-gpx.js && cross-env BABEL_ENV=commonjs NODE_ENV=production webpack src/index.js dist/gps-to-gpx.min.js",
-    "build": "npm-run-all --parallel build:*"
+    "coverage:check": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
+    "coverage:report": "nyc report --reporter=lcov",
+    "coverage": "nyc npm t",
+    "lint": "eslint src test",
+    "start": "cross-env BABEL_ENV=commonjs babel src --watch --out-dir lib",
+    "test:watch": "npm test -- --watch",
+    "test": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register --recursive",
+    "validate": "npm run lint && npm run coverage && npm run coverage:check"
   },
   "dependencies": {
     "babel-runtime": "6.9.2",
@@ -55,9 +66,10 @@
     "eslint-plugin-jsx-a11y": "1.5.3",
     "eslint-plugin-react": "5.2.2",
     "mocha": "2.5.3",
-    "npm-run-all": "2.2.2",
+    "npm-run-all": "2.3.0",
+    "nyc": "6.6.1",
     "rimraf": "2.5.2",
-    "webpack": "2.1.0-beta.13"
+    "webpack": "2.1.0-beta.15"
   },
   "browserify": {
     "transform": [

@@ -9,5 +9,6 @@ export function getType(value) {
     return 'array';
   }
 
+  /* istanbul ignore next */
   return typeof value;
 }

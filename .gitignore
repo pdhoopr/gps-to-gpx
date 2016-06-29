@@ -1,6 +1,6 @@
+.nyc_output
 *.log
 coverage/
-data/
 dist/
 es/
 lib/
