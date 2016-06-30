@@ -1,0 +1,31 @@
+{
+  "name": "gps-to-gpx-nikeplus-example",
+  "version": "0.0.0",
+  "description": "An example showing one possible use of the GPS to GPX package: getting Nike+ data and converting it to GPX files.",
+  "homepage": "",
+  "bugs": {
+    "url": "https://github.com/impatrickhooper/gps-to-gpx/issues"
+  },
+  "license": "MIT",
+  "author": "Patrick Hooper <patrick.d.hooper@gmail.com> (http://patrick.hoopr.io/)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/impatrickhooper/gps-to-gpx"
+  },
+  "scripts": {
+    "clean": "rimraf data/gpx/*.gpx data/json/*.json",
+    "start": "babel-node index"
+  },
+  "devDependencies": {
+    "rimraf": "2.5.2"
+  },
+  "dependencies": {
+    "axios": "0.12.0",
+    "babel-cli": "6.10.1",
+    "babel-core": "6.10.4",
+    "babel-preset-es2015": "6.9.0",
+    "babel-preset-stage-2": "6.11.0",
+    "colors": "1.1.2"
+  }
+}

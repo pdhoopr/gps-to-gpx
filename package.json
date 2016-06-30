@@ -7,11 +7,7 @@
     "url": "https://github.com/impatrickhooper/gps-to-gpx/issues"
   },
   "license": "MIT",
-  "author": {
-    "name": "Patrick Hooper",
-    "email": "patrick.d.hooper@gmail.com",
-    "url": "http://patrick.hoopr.io"
-  },
+  "author": "Patrick Hooper <patrick.d.hooper@gmail.com> (http://patrick.hoopr.io/)",
   "files": [
     "*.md",
     "dist",
@@ -20,6 +16,7 @@
     "src"
   ],
   "main": "lib/index.js",
+  "jsnext:main": "es/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/impatrickhooper/gps-to-gpx"
@@ -36,7 +33,7 @@
     "coverage:check": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
     "coverage:report": "nyc report --reporter=lcov",
     "coverage": "nyc npm t",
-    "lint": "eslint src test",
+    "lint": "eslint examples src test",
     "start": "cross-env BABEL_ENV=commonjs babel src --watch --out-dir lib",
     "test:watch": "npm test -- --watch",
     "test": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register --recursive",

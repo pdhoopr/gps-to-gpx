@@ -1,0 +1,1 @@
+export const ACCESS_TOKEN = '{NIKE+_API_ACCESS_TOKEN_GOES_HERE}';
