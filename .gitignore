@@ -3,5 +3,7 @@
 coverage/
 dist/
 es/
+examples/nikeplus/data/gpx/*.gpx
+examples/nikeplus/data/json/*.json
 lib/
 node_modules/
