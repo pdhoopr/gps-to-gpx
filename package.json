@@ -2,6 +2,13 @@
   "name": "gps-to-gpx",
   "version": "0.1.0",
   "description": "A simple tool for converting an array of GPS points to GPX.",
+  "keywords": [
+    "gps",
+    "gpx",
+    "nike+",
+    "nikeplus",
+    "strava"
+  ],
   "homepage": "",
   "bugs": {
     "url": "https://github.com/impatrickhooper/gps-to-gpx/issues"
