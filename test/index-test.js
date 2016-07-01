@@ -3,102 +3,102 @@ import { waypoints, waypointsWithCustomKeys, waypointsWithAllFields } from './fi
 import createGpxFromGps from '../src';
 
 describe('createGpxFromGps', () => {
-  it('should throw an error if "waypoints" is undefined', () => {
+  it('should throw an error if `waypoints` is `undefined`', () => {
     expect(() => createGpxFromGps()).to.throw(Error,
-      'createGpxFromGps expected the parameter "waypoints" to exist and be a non-empty array ' +
+      'createGpxFromGps expected the parameter `waypoints` to exist and be a non-empty array ' +
       'of GPS points, but something was wrong with the provided data. Did you pass an array ' +
-      '(not undefined, null or empty) of waypoints (each point being an object) as the first ' +
-      'argument when you called the function?'
+      '(not `undefined`, `null` or empty) of waypoints (each point being an object) as the ' +
+      'first argument when you called the function?'
     );
   });
 
-  it('should throw an error if "waypoints" is null', () => {
+  it('should throw an error if `waypoints` is `null`', () => {
     expect(() => createGpxFromGps(null)).to.throw(Error,
-      'createGpxFromGps expected the parameter "waypoints" to exist and be a non-empty array ' +
+      'createGpxFromGps expected the parameter `waypoints` to exist and be a non-empty array ' +
       'of GPS points, but something was wrong with the provided data. Did you pass an array ' +
-      '(not undefined, null or empty) of waypoints (each point being an object) as the first ' +
-      'argument when you called the function?'
+      '(not `undefined`, `null` or empty) of waypoints (each point being an object) as the ' +
+      'first argument when you called the function?'
     );
   });
 
-  it('should throw an error if "waypoints" is the wrong type', () => {
+  it('should throw an error if `waypoints` is the wrong type', () => {
     expect(() => createGpxFromGps({})).to.throw(Error,
-      'createGpxFromGps expected the parameter "waypoints" to exist and be a non-empty array ' +
+      'createGpxFromGps expected the parameter `waypoints` to exist and be a non-empty array ' +
       'of GPS points, but something was wrong with the provided data. Did you pass an array ' +
-      '(not undefined, null or empty) of waypoints (each point being an object) as the first ' +
-      'argument when you called the function?'
+      '(not `undefined`, `null` or empty) of waypoints (each point being an object) as the ' +
+      'first argument when you called the function?'
     );
   });
 
-  it('should throw an error if "waypoints" is empty', () => {
+  it('should throw an error if `waypoints` is empty', () => {
     expect(() => createGpxFromGps([])).to.throw(Error,
-      'createGpxFromGps expected the parameter "waypoints" to exist and be a non-empty array ' +
+      'createGpxFromGps expected the parameter `waypoints` to exist and be a non-empty array ' +
       'of GPS points, but something was wrong with the provided data. Did you pass an array ' +
-      '(not undefined, null or empty) of waypoints (each point being an object) as the first ' +
-      'argument when you called the function?'
+      '(not `undefined`, `null` or empty) of waypoints (each point being an object) as the ' +
+      'first argument when you called the function?'
     );
   });
 
-  it('should throw an error if every point in "waypoints" is not an object', () => {
+  it('should throw an error if every point in `waypoints` is not an object', () => {
     expect(() => createGpxFromGps([{}, 1, {}, true])).to.throw(Error,
-      'createGpxFromGps expected the parameter "waypoints" to exist and be a non-empty array ' +
+      'createGpxFromGps expected the parameter `waypoints` to exist and be a non-empty array ' +
       'of GPS points, but something was wrong with the provided data. Did you pass an array ' +
-      '(not undefined, null or empty) of waypoints (each point being an object) as the first ' +
-      'argument when you called the function?'
+      '(not `undefined`, `null` or empty) of waypoints (each point being an object) as the ' +
+      'first argument when you called the function?'
     );
   });
 
-  it('should not throw an error if "waypoints" exists as a non-empty array of objects', () => {
+  it('should not throw an error if `waypoints` exists as a non-empty array of objects', () => {
     expect(() => createGpxFromGps(waypoints)).to.not.throw(Error);
   });
 
-  it('should throw an error if "options" is null', () => {
+  it('should throw an error if `options` is `null`', () => {
     expect(() => createGpxFromGps(waypoints, null)).to.throw(Error,
-      `createGpxFromGps expected the parameter "options" to be an object, but instead it was ` +
+      `createGpxFromGps expected the parameter \`options\` to be an object, but instead it was ` +
       `the type "null". Did you pass an object literal of additional options ` +
-      `as the second argument when you called the function? "options" is not a required ` +
+      `as the second argument when you called the function? \`options\` is not a required ` +
       `parameter, so unless you need to override some default settings, you can leave it blank.`
     );
   });
 
-  it('should throw an error if "options" is the wrong type', () => {
+  it('should throw an error if `options` is the wrong type', () => {
     expect(() => createGpxFromGps(waypoints, 1)).to.throw(Error,
-      `createGpxFromGps expected the parameter "options" to be an object, but instead it was ` +
+      `createGpxFromGps expected the parameter \`options\` to be an object, but instead it was ` +
       `the type "number". Did you pass an object literal of additional options ` +
-      `as the second argument when you called the function? "options" is not a required ` +
+      `as the second argument when you called the function? \`options\` is not a required ` +
       `parameter, so unless you need to override some default settings, you can leave it blank.`
     );
   });
 
-  it('should not throw an error if "options" is undefined (there are default values)', () => {
+  it('should not throw an error if `options` is `undefined` (there are default values)', () => {
     expect(() => createGpxFromGps(waypoints, undefined)).to.not.throw(Error);
   });
 
-  it('should not throw an error if "options" is an object literal', () => {
+  it('should not throw an error if `options` is an object literal', () => {
     expect(() => createGpxFromGps(waypoints, {})).to.not.throw(Error);
   });
 
-  it('should render an xml element', () => {
+  it('should add an `<xml>` element', () => {
     expect(createGpxFromGps(waypoints)).to.match(/^<\?xml.*\?>/);
   });
 
-  it('should render a gpx element', () => {
+  it('should add a `<gpx>` element', () => {
     expect(createGpxFromGps(waypoints)).to.match(/<gpx.*>[\s\S]*<\/gpx>/);
   });
 
-  it('should render a metadata element with name as "Activity"', () => {
+  it('should add a `<metadata>` element with name as "Activity"', () => {
     expect(createGpxFromGps(waypoints)).to.match(
       /<metadata>[\s\S]*<name>Activity<\/name>[\s\S]*<\/metadata>/
     );
   });
 
-  it('should render a metadata element with no time if "startTime" setting is null', () => {
+  it('should add a `<metadata>` element but no `<time>` element if `startTime` is `null`', () => {
     expect(createGpxFromGps(waypoints)).to.not.match(
       /<metadata>[\s\S]*<time>.*<\/time>[\s\S]*<\/metadata>/
     );
   });
 
-  it('should render a metadata element with time as "startTime" setting when not null', () => {
+  it('should add a `<metadata>` element with `<time>` as `startTime` if not `null`', () => {
     expect(createGpxFromGps(waypoints, {
       startTime: '2015-07-20T23:30:49Z',
     })).to.match(
@@ -106,17 +106,17 @@ describe('createGpxFromGps', () => {
     );
   });
 
-  it('should render a trk element', () => {
+  it('should add a `<trk>` element', () => {
     expect(createGpxFromGps(waypoints)).to.match(/<trk>[\s\S]*<\/trk>/);
   });
 
-  it('should render a trk element with name as default "activityName" setting', () => {
+  it('should add a `<trk>` element with the `<name>` element as default `activityName`', () => {
     expect(createGpxFromGps(waypoints)).to.match(
       /<trk>[\s\S]*<name>Everyday I'm hustlin'<\/name>[\s\S]*<\/trk>/
     );
   });
 
-  it('should render a trk element with no name when "activityName" setting is null', () => {
+  it('should add a `<trk>` element but no `<name>` element when `activityName` is `null`', () => {
     expect(createGpxFromGps(waypoints, {
       activityName: null,
     })).to.not.match(
@@ -124,7 +124,7 @@ describe('createGpxFromGps', () => {
     );
   });
 
-  it('should render a trk element with name as "activityName" setting when not null', () => {
+  it('should add a `<trk>` element with `<name>` element as `activityName` if not `null`', () => {
     expect(createGpxFromGps(waypoints, {
       activityName: 'RUN',
     })).to.match(
@@ -132,7 +132,7 @@ describe('createGpxFromGps', () => {
     );
   });
 
-  it('should render a trkseg element', () => {
+  it('should add a `<trkseg>` element', () => {
     expect(createGpxFromGps(waypoints)).to.match(/<trkseg>[\s\S]*<\/trkseg>/);
   });
 
@@ -147,7 +147,7 @@ describe('createGpxFromGps', () => {
     );
   });
 
-  it('should throw an error if default "latKey" and "lonKey" options are not found', () => {
+  it('should throw an error if default `latKey` and `lonKey` are not found', () => {
     expect(() => createGpxFromGps(waypointsWithCustomKeys)).to.throw(Error,
       'createGpxFromGps expected to find properties for latitude and longitude on all GPS ' +
       'points, but at least one point did not have both. Did you pass an array of waypoints ' +
@@ -158,7 +158,7 @@ describe('createGpxFromGps', () => {
     );
   });
 
-  it('should throw an error if custom "latKey" and "lonKey" options are not found', () => {
+  it('should throw an error if custom `latKey` and `lonKey` are not found', () => {
     expect(() => createGpxFromGps(waypoints, {
       latKey: 'lat',
       lonKey: 'lon',
@@ -172,7 +172,7 @@ describe('createGpxFromGps', () => {
     );
   });
 
-  it('should render number of just trkpt elements equal to the number of points', () => {
+  it('should add as many `<trkpt>` elements as there are waypoints', () => {
     const gpx = createGpxFromGps(waypoints);
     let numMatchedWaypoints = 0;
 
@@ -190,19 +190,19 @@ describe('createGpxFromGps', () => {
     expect(numMatchedWaypoints).to.equal(waypoints.length);
   });
 
-  it('should render trkpt elements without ele if elevation is not in the waypoints', () => {
+  it('should add `<trkpt>` elements without `<ele>` element if `eleKey` is not found', () => {
     expect(createGpxFromGps(waypoints)).to.not.match(
       /<trkpt>[\s\S]*<ele>.*<\/ele>[\s\S]*<\/trkpt>/
     );
   });
 
-  it('should render trkpt elements without time if time is not in the waypoints', () => {
+  it('should add `<trkpt>` elements without `<time>` element if `timeKey` is not found', () => {
     expect(createGpxFromGps(waypoints)).to.not.match(
       /<trkpt>[\s\S]*<time>.*<\/time>[\s\S]*<\/trkpt>/
     );
   });
 
-  it('should render number of trkpt elements + all fields equal to the number of points', () => {
+  it('should add as many `<trkpt>` elements (with all fields) as there are waypoints', () => {
     const gpx = createGpxFromGps(waypointsWithAllFields);
     let numMatchedWaypoints = 0;
 
