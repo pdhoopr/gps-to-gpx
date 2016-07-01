@@ -4,6 +4,5 @@ coverage/
 dist/
 es/
 examples/**/data/**/*.gpx
-examples/**/data/**/*.json
 lib/
 node_modules/
