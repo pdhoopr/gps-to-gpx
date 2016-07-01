@@ -1,5 +1,5 @@
 // Vendor (3rd-party) imports
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 // Package imports
 import { ACCESS_TOKEN } from './constants';
@@ -67,6 +67,7 @@ export function filterActivityData(data) {
     .filter(activity => activity.activityId.search('-') === -1)
     .map(activity => ({
       activityId: activity.activityId,
+      activityTimeZone: activity.activityTimeZone,
       activityType: activity.activityType,
       duration: activity.metricSummary.duration,
       startTime: activity.startTime,
@@ -126,12 +127,9 @@ export function estimateTimeForWaypoints(data) {
     if (activity.waypoints && activity.waypoints.length > 1) {
       const waypointsWithEstimatedTime = [];
 
-      // Set the first timestamp as the `startTime` parsed by Moment.js to UTC time. Then, calculate
+      // Set the first timestamp as the `startTime` parsed by Moment.js as UTC time. Then, calculate
       // `timeStep` (how many seconds `timestamp` should be increased by for each waypoint).
-      const timestamp = moment(
-        `${activity.startTime.replace(/[TZ]/g, ' ')} -0400`,
-        'YYYY-MM-DD HH:mm:ss Z'
-      );
+      const timestamp = moment(`${activity.startTime}`).tz('Etc/UTC');
       const timeStep = calculateTimeStep(activity.duration, activity.waypoints.length);
 
       // Loop through all the waypoints for an activity and create a new waypoint with all the
