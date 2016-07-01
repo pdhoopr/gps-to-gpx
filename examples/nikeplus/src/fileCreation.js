@@ -7,7 +7,9 @@ import colors from 'colors/safe';
 // Package imports
 import createGpxFromGps from '../../../lib';
 
-function writeActivityDataToGpxFile(activity, filePath) {
+function writeActivityDataToGpxFile(activity, fileName, folder) {
+  const gpxFilePath = `./data/${folder}/${fileName}.gpx`;
+
   // Try to convert the activity data to a GPX string using the GPS to GPX package, taking care to
   // pass in the waypoints, activity type, and the start time of the activity.
   let gpxString;
@@ -24,11 +26,11 @@ function writeActivityDataToGpxFile(activity, filePath) {
   }
 
   // Create the file with the given name and activity data that was converted to a GPX string.
-  fs.writeFile(filePath, gpxString, (error) => {
+  fs.writeFile(gpxFilePath, gpxString, (error) => {
     if (error) {
       console.error(colors.red(`\u2716 ${error}`));
     } else {
-      console.log(colors.green(`\u2714 GPX saved to ${filePath}`));
+      console.log(colors.green(`\u2714 GPX saved to ${gpxFilePath}`));
     }
   });
 }
@@ -53,8 +55,8 @@ export function writeActivityDataToFiles(data, folder) {
       /^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2})Z$/
     );
     const [, fileNameDay, fileNameTime] = startTimeMatch;
-    const filePath = `./data/${folder}/run_${fileNameDay}_${fileNameTime.replace(/:/g, '-')}.gpx`;
+    const fileName = `run_${fileNameDay}_${fileNameTime.replace(/:/g, '-')}`;
 
-    writeActivityDataToGpxFile(activity, filePath, folder);
+    writeActivityDataToGpxFile(activity, fileName, folder);
   }
 }
