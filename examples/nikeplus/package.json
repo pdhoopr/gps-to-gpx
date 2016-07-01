@@ -14,7 +14,7 @@
     "url": "https://github.com/impatrickhooper/gps-to-gpx"
   },
   "scripts": {
-    "clean": "rimraf data/**/gpx/*.gpx data/**/json/*.json",
+    "clean": "rimraf data/**/*.gpx",
     "start": "babel-node index"
   },
   "devDependencies": {

@@ -60,7 +60,7 @@ export default function createGpxFromGps(waypoints, options = {}) {
     timeKey: 'time',
     startTime: null,
   };
-  const settings = Object.assign(defaultSettings, options);
+  const settings = Object.assign({}, defaultSettings, options);
 
   // Initialize the `<gpx>` element with some default attributes.
   const gpx = xmlBuilder

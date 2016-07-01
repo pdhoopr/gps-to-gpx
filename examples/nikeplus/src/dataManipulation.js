@@ -90,7 +90,7 @@ export async function addWaypoints(data) {
     try {
       const waypoints = await getActivityGps(activity.activityId);
 
-      return Object.assign(activity, waypoints);
+      return Object.assign({}, activity, waypoints);
     } catch (error) {
       console.error(error);
 
@@ -99,9 +99,9 @@ export async function addWaypoints(data) {
   }));
 }
 
-// Parse a duration string in the form "0:00:00.000" to hours, minutes, seconds, and then
-// calcuate the total duration in seconds from those pieces. Return the time step as this duration
-// in seconds divided by the number of waypoints (less 1).
+// Parse a duration string in the form "0:00:00.000" to hours, minutes, seconds (using ES2015 array
+// destructuring) and then calcuate the total duration in seconds from those pieces. Return the
+// time step as this duration in seconds divided by the number of waypoints (less 1).
 function calculateTimeStep(duration, numWaypoints) {
   const [, hours, minutes, seconds] = duration.match(/^(\d{1,2}):(\d{2}):(\d{2}\.\d{3})$/);
   const durationInSeconds = (Number(hours) * 3600) + (Number(minutes) * 60) + Number(seconds);
@@ -136,7 +136,7 @@ export function estimateTimeForWaypoints(data) {
       // properties of the old waypoint plus a new `time` property which is the timestamp. Before
       // the next loop iteration, increase `timestamp` by `timeStep` seconds.
       for (const waypoint of activity.waypoints) {
-        waypointsWithEstimatedTime.push(Object.assign(waypoint, {
+        waypointsWithEstimatedTime.push(Object.assign({}, waypoint, {
           time: `${timestamp.format('YYYY-MM-DDTHH:mm:ss.SSS')}Z`,
         }));
         timestamp.add(timeStep, 'seconds');
@@ -144,7 +144,7 @@ export function estimateTimeForWaypoints(data) {
 
       // Create a new activity with all the properties of the old activity plus an updated
       // `waypoints` property which contains all the waypoints with estimated timestamps.
-      dataWithEstimatedTime.push(Object.assign(activity, {
+      dataWithEstimatedTime.push(Object.assign({}, activity, {
         waypoints: waypointsWithEstimatedTime,
       }));
     } else {
