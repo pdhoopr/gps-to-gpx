@@ -14,7 +14,7 @@
     "url": "https://github.com/impatrickhooper/gps-to-gpx/issues"
   },
   "license": "MIT",
-  "author": "Patrick Hooper <patrick.d.hooper@gmail.com> (http://patrick.hoopr.io/)",
+  "author": "Patrick Hooper <patrick.d.hooper@gmail.com> (http://patrick.hoopr.io)",
   "files": [
     "*.md",
     "dist",
