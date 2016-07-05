@@ -17,13 +17,13 @@ npm install --save gps-to-gpx
 
 In a CommonJS environment, you can import the library like this:
 
-```
+```js
 const createGpxFromGps = require('gps-to-gpx');
 ```
 
 In an ES2015 environment, you can import the library like this:
 
-```
+```js
 import createGpxFromGps from 'gps-to-gpx';
 ```
 
