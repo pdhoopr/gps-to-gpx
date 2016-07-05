@@ -56,8 +56,8 @@ createGpxFromGps(waypoints[, options])
 
 ## Examples
 
-- [Nike+](https://github.com/reactjs/redux/tree/master/examples/counter-vanilla) (A sample Node.js project that pulls all valid activities from the Nike+ API and saves them as GPX files)
-
+- [Nike+](https://github.com/impatrickhooper/gps-to-gpx/tree/master/examples/nikeplus) (A sample Node.js project that pulls all valid activities from the Nike+ API and saves them as GPX files)
+gi
 ## Roadmap
 
 This project was created primarily as a hobby project to help familiarize myself with the process of creating a Node.js library. For that reason, and because it has pretty targeted use cases, it probably won't get a ton of attention. Hopefully, someone somewhere finds it useful and does something super cool with it. If that person is you, I'd love to hear from you! Also, if you have any feature requests or encounter any problems, please feel free to add them to the [issue tracker](https://github.com/impatrickhooper/gps-to-gpx/issues). Thank you!
