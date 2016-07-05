@@ -1,7 +1,7 @@
 // Vendor (3rd-party) imports
 import moment from 'moment-timezone';
 
-// Package imports
+// Library imports
 import { ACCESS_TOKEN } from './constants';
 import { getActivities, getActivityGps } from './nikeplusApi';
 

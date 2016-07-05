@@ -1,7 +1,7 @@
 // Vendor (3rd-party) imports
 import axios from 'axios';
 
-// Package imports
+// Library imports
 import { ACCESS_TOKEN } from './constants';
 
 /**
