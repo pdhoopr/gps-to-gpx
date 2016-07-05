@@ -1,7 +1,7 @@
 // Vendor (3rd-party) imports
 import xmlBuilder from 'xmlbuilder';
 
-// Package imports
+// Library imports
 import { doesExist, getType } from './utils';
 
 function assertArgValidity(waypoints, options) {
@@ -44,7 +44,8 @@ function assertArgValidity(waypoints, options) {
  * For `options`, this means it must be an object literal.
  *
  * @param {Array} waypoints - An array of GPS waypoint data.
- * @param {Object} options - An object of options that customize/override the module settings.
+ * @param {Object} options - An object literal of options that customize/override the default
+ * library settings.
  *
  * @returns {String} A GPX (a form of XML) string composed of the given waypoints and options.
  */
@@ -57,8 +58,8 @@ export default function createGpxFromGps(waypoints, options = {}) {
     eleKey: 'elevation',
     latKey: 'latitude',
     lonKey: 'longitude',
-    timeKey: 'time',
     startTime: null,
+    timeKey: 'time',
   };
   const settings = Object.assign({}, defaultSettings, options);
 

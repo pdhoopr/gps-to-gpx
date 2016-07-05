@@ -3,14 +3,12 @@ import fs from 'fs';
 
 // Vendor (3rd-party) imports
 import colors from 'colors/safe';
-
-// Package imports
-import createGpxFromGps from '../../../lib';
+import createGpxFromGps from 'gps-to-gpx';
 
 function writeActivityDataToGpxFile(activity, fileName, folder) {
   const gpxFilePath = `./data/${folder}/${fileName}.gpx`;
 
-  // Try to convert the activity data to a GPX string using the GPS to GPX package, taking care to
+  // Try to convert the activity data to a GPX string using the GPS to GPX library, taking care to
   // pass in the waypoints, activity type, and the start time of the activity.
   let gpxString;
   try {

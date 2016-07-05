@@ -1,7 +1,7 @@
 {
   "name": "gps-to-gpx-nikeplus-example",
   "version": "0.0.0",
-  "description": "An example showing one possible use of the GPS to GPX package: getting Nike+ data and converting it to GPX files.",
+  "description": "An example showing one possible use of the GPS to GPX library: getting Nike+ data and converting it to GPX files.",
   "homepage": "",
   "bugs": {
     "url": "https://github.com/impatrickhooper/gps-to-gpx/issues"
