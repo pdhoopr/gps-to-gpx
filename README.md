@@ -56,6 +56,8 @@ createGpxFromGps(waypoints[, options])
 
 ## Examples
 
+If you're not sure where to start with the GPS to GPX library, maybe the example(s) below can help. You can clone the repository and navigate to "gps-to-gpx/examples/{example_name}" to get started. An example should work like a normal project, so to use it you can first do `npm install`, then check out the npm scripts in the "package.json" to see what else is available (for example, `npm start` might run the example or `npm run clean` might cleanup any output artifacts).
+
 - [Nike+](https://github.com/impatrickhooper/gps-to-gpx/tree/master/examples/nikeplus): This is a sample Node.js project that pulls all valid activities from the Nike+ API and saves them as GPX files. Documentation can be found as comments throughout the example code. NOTE: Since the Nike+ API does not include timestamps, the example saves GPX files in 2 ways: without time and with estimated time. The estimated timestamps are very rough calculations based on the duration of the activity and number of waypoints. Please keep in mind this is just a quick example, so I wouldn't recommend using the estimated timestamps unless you're in a pinch. I have to imagine there are better ways.
 
 ## Roadmap
