@@ -1,9 +1,9 @@
 // Node.js imports
 import fs from 'fs';
 
-// Vendor (3rd-party) imports
+// Vendor imports
 import colors from 'colors/safe';
-import createGpxFromGps from 'gps-to-gpx';
+import gpsToGpx from 'gps-to-gpx';
 
 function writeActivityDataToGpxFile(activity, fileName, folder) {
   const gpxFilePath = `./data/${folder}/${fileName}.gpx`;
@@ -12,7 +12,7 @@ function writeActivityDataToGpxFile(activity, fileName, folder) {
   // pass in the waypoints, activity type, and the start time of the activity.
   let gpxString;
   try {
-    gpxString = createGpxFromGps(activity.waypoints, {
+    gpxString = gpsToGpx(activity.waypoints, {
       activityName: activity.activityType,
       startTime: activity.startTime,
     });

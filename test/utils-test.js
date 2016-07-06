@@ -1,4 +1,7 @@
+// Vendor imports
 import { expect } from 'chai';
+
+// Library imports
 import { doesExist, getType } from '../src/utils';
 
 describe('utils', () => {
