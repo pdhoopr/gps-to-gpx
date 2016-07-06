@@ -33,7 +33,7 @@ The source code is written in ES2015 but is compiled to ES5 ahead of time in bot
 
 ## API Documentation
 
-As you might have gathered by now, this is a small library. It exports one function with a few options for file customization:
+This is a small library, so it only exports one function with a few options for file customization:
 
 ```
 gpsToGpx(waypoints[, options])
