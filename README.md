@@ -80,7 +80,7 @@ And you'd get back a GPX string like this:
 </gpx>
 ```
 
-See the ["API Documentation"](#user-content-api-documentation) section for more a more complete reference on the library and its settings. You can also check out the ["Examples"](user-content-examples) section for more complete usage examples.
+See the ["API Documentation"](#user-content-api-documentation) section for more a more complete reference on the library and its settings. You can also check out the ["Examples"](#user-content-examples) section for more complete usage examples.
 
 ## API Documentation
 
