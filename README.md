@@ -50,7 +50,7 @@ You might have a `data` variable containing JSON that looks like this:
 }
 ```
 
-Assuming you've imported the `createGpx` function (take a look at the ["Installation"](#user-content-installation) section if you don't know how), you could then call it like so:
+Assuming you've [imported the `createGpx` function](#user-content-installation), you could then call it like so:
 
 ```js
 createGpx(data.waypoints, {
@@ -80,7 +80,7 @@ And you'd get back a GPX string like this:
 </gpx>
 ```
 
-See the ["API Documentation"](#user-content-api-documentation) section for more a more complete reference on the library and its settings. You can also check out the ["Examples"](#user-content-examples) section for more complete usage examples.
+See the [API documentation](#user-content-api-documentation) for more a more complete reference on the library and its settings. You can also check out the [examples](#user-content-examples) for more complete usage examples.
 
 ## API Documentation
 
