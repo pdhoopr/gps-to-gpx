@@ -27,9 +27,60 @@ In an ES2015 environment, you can import the library like this:
 import { createGpx } from 'gps-to-gpx';
 ```
 
-If you're not using modules via something like [webpack](http://webpack.github.io/), [Browserify](http://browserify.org/), or [Node.js](https://nodejs.org/en/), then the UMD build might interest you. The `gps-to-gpx` library you installed earlier comes with a "dist" folder containing development and (minified) production UMD builds that can be used without a module bundler. In a UMD environment, GPS to GPX will be available as the `window.GpsToGpx` variable.
+If you're not using modules via something like [webpack](http://webpack.github.io/), [Browserify](http://browserify.org/), or [Node.js](https://nodejs.org/en/), then the UMD build might interest you. The `gps-to-gpx` library comes with a "dist" folder containing development and (minified) production UMD builds that can be used without a module bundler. In a UMD environment, GPS to GPX will be available as the `window.GpsToGpx` variable.
 
 The source code is written in ES2015 but is compiled to ES5 ahead of time in both CommonJS ("lib" folder) and UMD ("dist" folder) builds.
+
+## Usage
+
+You might have a `data` variable containing JSON that looks like this:
+
+```json
+{
+  "activityType": "RUN",
+  "startTime": "2016-07-06T12:36:00Z",
+  "waypoints": [
+    {
+      "latitude": 26.852324,
+      "longitude": -80.08045,
+      "elevation": 0,
+      "time": "2016-07-06T12:36:00Z"
+    }
+  ]
+}
+```
+
+Assuming you've imported the `createGpx` function (take a look at the ["Installation"](#user-content-installation) section if you don't know how), you could then call it like so:
+
+```js
+createGpx(data.waypoints, {
+  activityName: data.activityType,
+  startTime: data.startTime,
+});
+```
+
+And you'd get back a GPX string like this:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx creator="Patrick Hooper" version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+  <metadata>
+    <name>Activity</name>
+    <time>2016-07-06T12:36:00Z</time>
+  </metadata>
+  <trk>
+    <name>RUN</name>
+    <trkseg>
+      <trkpt lat="26.852324" lon="-80.08045">
+        <ele>0</ele>
+        <time>2016-07-06T12:36:00Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
+```
+
+See the ["API Documentation"]() section for more a more complete reference on the library and its settings. You can also check out the ["Examples"]() section for more complete usage examples.
 
 ## API Documentation
 
