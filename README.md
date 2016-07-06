@@ -18,13 +18,13 @@ npm install --save gps-to-gpx
 In a CommonJS environment, you can import the library like this:
 
 ```js
-const gpsToGpx = require('gps-to-gpx');
+const createGpx = require('gps-to-gpx').createGpx;
 ```
 
 In an ES2015 environment, you can import the library like this:
 
 ```js
-import gpsToGpx from 'gps-to-gpx';
+import { createGpx } from 'gps-to-gpx';
 ```
 
 If you're not using modules via something like [webpack](http://webpack.github.io/), [Browserify](http://browserify.org/), or [Node.js](https://nodejs.org/en/), then the UMD build might interest you. The `gps-to-gpx` library you installed earlier comes with a "dist" folder containing development and (minified) production UMD builds that can be used without a module bundler. In a UMD environment, GPS to GPX will be available as the `window.GpsToGpx` variable.
@@ -33,10 +33,10 @@ The source code is written in ES2015 but is compiled to ES5 ahead of time in bot
 
 ## API Documentation
 
-This is a small library, so it only exports one function with a few options for GPX file customization:
+This is a minimal library, so it only exports one function with a few options for GPX file customization:
 
 ```
-gpsToGpx(waypoints[, options])
+createGpx(waypoints[, options])
 ```
 
 ### Parameters
