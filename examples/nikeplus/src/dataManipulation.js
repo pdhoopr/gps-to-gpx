@@ -1,4 +1,4 @@
-// Vendor (3rd-party) imports
+// Vendor imports
 import moment from 'moment-timezone';
 
 // Library imports

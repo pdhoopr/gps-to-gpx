@@ -1,4 +1,4 @@
-// Vendor (3rd-party) imports
+// Vendor imports
 import xmlBuilder from 'xmlbuilder';
 
 // Library imports
@@ -14,7 +14,7 @@ function assertArgValidity(waypoints, options) {
     waypoints.some(point => getType(point) !== 'object')
   ) {
     throw new Error(
-      'createGpxFromGps expected the parameter `waypoints` to exist and be a non-empty array ' +
+      'gpsToGpx expected the parameter `waypoints` to exist and be a non-empty array ' +
       'of GPS points, but something was wrong with the provided data. Did you pass an array ' +
       '(not `undefined`, `null` or empty) of waypoints (each point being an object) as the ' +
       'first argument when you called the function?'
@@ -24,7 +24,7 @@ function assertArgValidity(waypoints, options) {
   // Ensure `options` is an object literal.
   if (getType(options) !== 'object') {
     throw new Error(
-      `createGpxFromGps expected the parameter \`options\` to be an object, but instead it was ` +
+      `gpsToGpx expected the parameter \`options\` to be an object, but instead it was ` +
       `the type "${getType(options)}". Did you pass an object literal of additional options ` +
       `as the second argument when you called the function? \`options\` is not a required ` +
       `parameter, so unless you need to override some default settings, you can leave it blank.`
@@ -49,7 +49,7 @@ function assertArgValidity(waypoints, options) {
  *
  * @returns {String} A GPX (a form of XML) string composed of the given waypoints and options.
  */
-export default function createGpxFromGps(waypoints, options = {}) {
+export default function gpsToGpx(waypoints, options = {}) {
   assertArgValidity(waypoints, options);
 
   // Define default settings and merge in any user-defined options that override the defaults.
@@ -104,7 +104,7 @@ export default function createGpxFromGps(waypoints, options = {}) {
   for (const point of waypoints) {
     if (!point.hasOwnProperty(settings.latKey) || !point.hasOwnProperty(settings.lonKey)) {
       throw new Error(
-        'createGpxFromGps expected to find properties for latitude and longitude on all GPS ' +
+        'gpsToGpx expected to find properties for latitude and longitude on all GPS ' +
         'points, but at least one point did not have both. Did you pass an array of waypoints ' +
         '(where every point has a latitude and longitude) as the first argument when you called ' +
         'the function? These properties are pretty essential to a well-formed GPX file. If they ' +

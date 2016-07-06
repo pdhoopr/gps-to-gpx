@@ -1,4 +1,4 @@
-// Vendor (3rd-party) imports
+// Vendor imports
 import axios from 'axios';
 
 // Library imports

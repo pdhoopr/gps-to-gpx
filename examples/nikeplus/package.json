@@ -8,14 +8,14 @@
   },
   "license": "MIT",
   "author": "Patrick Hooper <patrick.d.hooper@gmail.com> (http://patrick.hoopr.io)",
-  "main": "index.js",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/impatrickhooper/gps-to-gpx"
   },
   "scripts": {
     "clean": "rimraf data/**/*.gpx",
-    "start": "babel-node index"
+    "start": "babel-node src/index"
   },
   "devDependencies": {
     "rimraf": "2.5.2"

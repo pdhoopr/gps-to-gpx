@@ -18,13 +18,13 @@ npm install --save gps-to-gpx
 In a CommonJS environment, you can import the library like this:
 
 ```js
-const createGpxFromGps = require('gps-to-gpx');
+const gpsToGpx = require('gps-to-gpx');
 ```
 
 In an ES2015 environment, you can import the library like this:
 
 ```js
-import createGpxFromGps from 'gps-to-gpx';
+import gpsToGpx from 'gps-to-gpx';
 ```
 
 If you're not using modules via something like [webpack](http://webpack.github.io/), [Browserify](http://browserify.org/), or [Node.js](https://nodejs.org/en/), then the UMD build might interest you. The `gps-to-gpx` library you installed earlier comes with a "dist" folder containing development and (minified) production UMD builds that can be used without a module bundler. In a UMD environment, GPS to GPX will be available as the `window.GpsToGpx` variable.
@@ -36,7 +36,7 @@ The source code is written in ES2015 but is compiled to ES5 ahead of time in bot
 As you might have gathered by now, this is a small library. It exports one function with a few options for file customization:
 
 ```
-createGpxFromGps(waypoints[, options])
+gpsToGpx(waypoints[, options])
 ```
 
 ### Parameters
@@ -62,7 +62,7 @@ If you're not sure where to start with the GPS to GPX library, maybe the example
 
 ## Roadmap
 
-This project was created primarily as a hobby project to help familiarize myself with the process of creating a Node.js library. For that reason, and because it has pretty targeted use cases, it probably won't get a ton of attention. Hopefully, someone somewhere finds it useful and does something super cool with it. If that person is you, I'd love to hear from you! Also, if you have any feature requests or encounter any problems, please feel free to add them to the [issue tracker](https://github.com/impatrickhooper/gps-to-gpx/issues). Thank you!
+This project was created primarily as a hobby project to help familiarize myself with the process of creating a JavaScript library. For that reason, and because it has pretty targeted use cases, it probably won't get a ton of attention. Hopefully, someone somewhere finds it useful and does something super cool with it. If that person is you, I'd love to hear from you! Also, if you have any feature requests or encounter any problems, please feel free to add them to the [issue tracker](https://github.com/impatrickhooper/gps-to-gpx/issues) or submit a pull request. Thank you!
 
 ## License
 
