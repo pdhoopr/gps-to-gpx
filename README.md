@@ -1,11 +1,65 @@
 # GPS to GPX
 A simple tool for converting an array of GPS points to GPX.
 
-This is a fairly minimal library that uses GPS waypoint data from an activity (a run, bike ride, hike, etc.) to create a GPX file. Although the use cases are a bit limited, it can be helpful in specific situations. For example:
+This is a fairly minimal library that uses GPS waypoint data from an activity (a run, bike ride, hike, etc.) to create a GPX file. Although the use cases are a bit limited, it can be helpful in specific situations.
 
-- You use a service like [Nike+](https://www.nike.com/US/en_US/p/activity) for tracking your runs. Being a curious person, you're interested in trying out some other services to see what they're like, or maybe you've decided to start doing some cycling and now want to track all your different activities in one place, like [Strava](https://www.strava.com/dashboard), and you want to take your data with you. A common way of doing this is to download your data as a GPX file and import it into other services. Nike+ (inexplicably) doesn't let you export data from your runs, but it does have an API that lets you grab JSON data for each activity. So, you're kind of stuck; you have some JSON data but you want GPX files. That's where this library comes in - just send in your GPS waypoints, and you'll get back nicely formatted GPX created from your data!
+## The Hook
+Let's say you use a service like [Nike+](https://www.nike.com/US/en_US/p/activity) for tracking your runs. Being a curious person, you're interested in trying out some other services to see what they're like, or maybe you've decided to start doing some cycling and now want to track all your different activities in one place, like [Strava](https://www.strava.com/dashboard), and you want to take your data with you. A common way of doing this is to download your data as a GPX file and import it into other services. Nike+ (inexplicably) doesn't let you export data from your runs, but it does have an API that lets you grab JSON data for each activity. So, you're kind of stuck; you have some JSON data but you want GPX files. That's where this library comes in handy!
 
-Keep in mind, this isn't the only use case, but it does a good job illustrating the purpose and intent of this tool. By itself, this might not seem entirely useful. If you're not into web development, things like APIs, data manipulation, and JavaScript libraries probably don't rev your engine. That's totally fair. There are a lot of great, user-friendly options out there for making transitions like the one described in the example; just check out [this Strava support forum](https://support.strava.com/hc/en-us/community/posts/208835477-Sync-Nike-to-Strava). However, if you happen to be a tech-savvy developer looking to create some GPX files or try your hand at building the next great API-to-GPX tool for people to use, this library might just fit your pipeline nicely.
+You might have JSON data that looks like this:
+
+```json
+{
+  "activityType": "RUN",
+  "startTime": "2016-07-06T12:36:00Z",
+  "waypoints": [
+    {
+      "latitude": 26.852324,
+      "longitude": -80.08045,
+      "elevation": 0,
+      "time": "2016-07-06T12:36:00Z"
+    }
+  ]
+}
+```
+
+Let's assume the JSON data above has been saved to a `data` variable and you're using ES2015 (if you're using another environment, you can find the appropriate steps in the [installation instructions](#user-content-installation)). Now you can import the top-level `createGpx` function and call it like so :
+
+```js
+import { createGpx } from 'gps-to-gpx';
+
+const gpx = createGpx(data.waypoints, {
+  activityName: data.activityType,
+  startTime: data.startTime,
+});
+
+console.log(gpx);
+```
+
+For all your hard work, you'll be rewarded with a GPX string in your console that looks like this:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx creator="Patrick Hooper" version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+  <metadata>
+    <name>Activity</name>
+    <time>2016-07-06T12:36:00Z</time>
+  </metadata>
+  <trk>
+    <name>RUN</name>
+    <trkseg>
+      <trkpt lat="26.852324" lon="-80.08045">
+        <ele>0</ele>
+        <time>2016-07-06T12:36:00Z</time>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
+```
+
+See how easy that was? Just send in your GPS waypoints, and you'll get back nicely formatted GPX created from your data! You can now do whatever you want with this, like save it to a file.
+
+Keep in mind, this isn't the only use case, but it does a good job illustrating the purpose and intent of this tool. By itself, this might not seem entirely useful. If you're not into web development, things like APIs, data manipulation, and JavaScript libraries probably don't rev your engine. That's totally fair. There are a lot of great, user-friendly options out there for making transitions like the one described in the example; just check out [this Strava support forum](https://support.strava.com/hc/en-us/community/posts/208835477-Sync-Nike-to-Strava). However, if you happen to be a tech-savvy developer looking to create some GPX files or try your hand at building the next great API-to-GPX tool for people to use, then read on because this library might just fit your pipeline nicely.
 
 ## Installation
 
@@ -30,57 +84,6 @@ import { createGpx } from 'gps-to-gpx';
 If you're not using modules via something like [webpack](http://webpack.github.io/), [Browserify](http://browserify.org/), or [Node.js](https://nodejs.org/en/), then the UMD build might interest you. The `gps-to-gpx` library comes with a `dist` folder containing development and (minified) production UMD builds that can be used without a module bundler. In a UMD environment, GPS to GPX will be available as the `window.GpsToGpx` variable.
 
 The source code is written in ES2015 but is compiled to ES5 ahead of time in both CommonJS (`lib` folder) and UMD (`dist` folder) builds.
-
-## Usage
-
-You might have a `data` variable containing JSON that looks like this:
-
-```json
-{
-  "activityType": "RUN",
-  "startTime": "2016-07-06T12:36:00Z",
-  "waypoints": [
-    {
-      "latitude": 26.852324,
-      "longitude": -80.08045,
-      "elevation": 0,
-      "time": "2016-07-06T12:36:00Z"
-    }
-  ]
-}
-```
-
-Assuming you've [imported the `createGpx` function](#user-content-installation), you could then call it like so:
-
-```js
-createGpx(data.waypoints, {
-  activityName: data.activityType,
-  startTime: data.startTime,
-});
-```
-
-And you'd get back a GPX string like this:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<gpx creator="Patrick Hooper" version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
-  <metadata>
-    <name>Activity</name>
-    <time>2016-07-06T12:36:00Z</time>
-  </metadata>
-  <trk>
-    <name>RUN</name>
-    <trkseg>
-      <trkpt lat="26.852324" lon="-80.08045">
-        <ele>0</ele>
-        <time>2016-07-06T12:36:00Z</time>
-      </trkpt>
-    </trkseg>
-  </trk>
-</gpx>
-```
-
-See the [API documentation](#user-content-api-documentation) for a more complete reference on the library and its settings. You can also check out the [examples](#user-content-examples) for more complete use cases.
 
 ## API Documentation
 
@@ -115,7 +118,13 @@ If you're not sure where to start with the GPS to GPX library, maybe the example
 
 This project was created primarily as a hobby project to help familiarize myself with the process of creating a JavaScript library. For that reason, and because it has pretty targeted use cases, it probably won't get a ton of attention. Hopefully, someone somewhere finds it useful and does something super cool with it. If that person is you, I'd love to hear from you!
 
-If you have any feature requests or encounter any problems, please use the [contributing guidelines](https://github.com/impatrickhooper/gps-to-gpx/blob/master/CONTRIBUTING.md) to determine your next move. Thank you!
+## Contributing
+
+Contributions from the community are welcome and encouraged! If you have any ideas, feature requests, bugs, etc., please use the [contributing guidelines](https://github.com/impatrickhooper/gps-to-gpx/blob/master/CONTRIBUTING.md) to determine your next move. Also note that this project follows a [code of conduct](https://github.com/impatrickhooper/gps-to-gpx/blob/master/CODE_OF_CONDUCT.md). Thank you!
+
+## Releases
+
+This project follows [Semantic Versioning](http://semver.org/). All releases are documented on the GitHub [releases page](https://github.com/impatrickhooper/gps-to-gpx/releases) and in the [changelog](https://github.com/impatrickhooper/gps-to-gpx/blob/master/CHANGELOG.md).
 
 ## License
 

@@ -1,3 +1,7 @@
+# Contributing
+
+
+
 ## Development
 1. Clone the repository.
 2. Navigate into the repository.
