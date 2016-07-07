@@ -43,11 +43,11 @@ function assertArgValidity(waypoints, options) {
  * `waypoints` needs to be an object with (at very least) latitude and longitude coordinates.
  * For `options`, this means it must be an object literal.
  *
- * @param {Array} waypoints - An array of GPS waypoint data.
- * @param {Object} options - An object literal of options that customize/override the default
+ * @param {array} waypoints - An array of GPS waypoint data.
+ * @param {object} options - An object literal of options that customize/override the default
  * library settings.
  *
- * @returns {String} A GPX (a form of XML) string composed of the given waypoints and options.
+ * @returns {string} A GPX (a form of XML) string composed of the given waypoints and options.
  */
 export default function createGpx(waypoints, options = {}) {
   assertArgValidity(waypoints, options);

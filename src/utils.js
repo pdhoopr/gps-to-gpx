@@ -4,7 +4,7 @@
  *
  * @param value - The value to check the existence of.
  *
- * @returns {Boolean} `true` if value exists (not `undefined` and not `null`), `false` otherwise.
+ * @returns {boolean} `true` if value exists (not `undefined` and not `null`), `false` otherwise.
  */
 export function doesExist(value) {
   return value !== undefined && value !== null;
@@ -17,7 +17,7 @@ export function doesExist(value) {
  *
  * @param value - The value to check the type of.
  *
- * @returns {String} The type of the value as a string.
+ * @returns {string} The type of the value as a string.
  */
 export function getType(value) {
   if (value === null) {

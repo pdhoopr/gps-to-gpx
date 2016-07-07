@@ -14,7 +14,7 @@ import { getActivities, getActivityGps } from './nikeplusApi';
  * NOTE: You'll need an access token in order to use the API. Check out the `constants.js` file for
  * more info.
  *
- * @returns {Array} An array containing objects of activity data for each Nike+ activity returned
+ * @returns {array} An array containing objects of activity data for each Nike+ activity returned
  * by the API.
  */
 export async function buildActivityData() {
@@ -57,9 +57,9 @@ export async function buildActivityData() {
  * `activityId`)and then strips each activity's data down to only the fields we're interested in:
  * `activityId`, `activityType`, `duration`, and `startTime`.
  *
- * @param {Array} data - An array containing objects of activity data for each Nike+ activity.
+ * @param {array} data - An array containing objects of activity data for each Nike+ activity.
  *
- * @returns {Array} An array containing only valid objects of activity data, each with only the
+ * @returns {array} An array containing only valid objects of activity data, each with only the
  * fields we want.
  */
 export function filterActivityData(data) {
@@ -78,9 +78,9 @@ export function filterActivityData(data) {
  * Adds waypoint data to each activity by calling the Nike+ API GPS endpoint for each activity and
  * adding the results to the activity's data.
  *
- * @param {Array} data - An array containing objects of activity data for each Nike+ activity.
+ * @param {array} data - An array containing objects of activity data for each Nike+ activity.
  *
- * @returns {Array} An array containing objects of activity data, each with waypoint data included.
+ * @returns {array} An array containing objects of activity data, each with waypoint data included.
  */
 export async function addWaypoints(data) {
   return await Promise.all(data.map(async (activity) => {
@@ -115,9 +115,9 @@ function calculateTimeStep(duration, numWaypoints) {
  * the duration in seconds by the number of waypoints. The timestamp for a waypoint is the previous
  * waypoint's timestamp plus the time step. The first timestamp is the activity's start time.
  *
- * @param {Array} data - An array containing objects of activity data for each Nike+ activity.
+ * @param {array} data - An array containing objects of activity data for each Nike+ activity.
  *
- * @returns {Array} An array containing objects of activity data, each with an estimated timestamp
+ * @returns {array} An array containing objects of activity data, each with an estimated timestamp
  * included for all waypoints.
  */
 export function estimateTimeForWaypoints(data) {
