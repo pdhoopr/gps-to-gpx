@@ -11,7 +11,7 @@ import { getActivities, getActivityGps } from './nikeplusApi';
  * the API responses to navigate through pages and make calls for additional data until it reaches
  * the end.
  *
- * NOTE: You'll need an access token in order to use the API. Check out the "constants.js" file for
+ * NOTE: You'll need an access token in order to use the API. Check out the `constants.js` file for
  * more info.
  *
  * @returns {Array} An array containing objects of activity data for each Nike+ activity returned
@@ -53,9 +53,9 @@ export async function buildActivityData() {
 }
 
 /**
- * Filters the data first to only include valid activities (those without "-" in the `activityId`)
- * and then strips each activity's data down to only the fields we're interested in: `activityId`,
- * `activityType`, `duration`, and `startTime`.
+ * Filters the data first to only include valid activities (those without a hyphen in the
+ * `activityId`)and then strips each activity's data down to only the fields we're interested in:
+ * `activityId`, `activityType`, `duration`, and `startTime`.
  *
  * @param {Array} data - An array containing objects of activity data for each Nike+ activity.
  *

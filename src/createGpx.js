@@ -109,7 +109,7 @@ export default function createGpx(waypoints, options = {}) {
         '(where every point has a latitude and longitude) as the first argument when you called ' +
         'the function? These properties are pretty essential to a well-formed GPX file. If they ' +
         'are found using property names different than in the default settings, you can ' +
-        'override the "latKey" and "lonKey" options in the second argument to the function call.'
+        'override the `latKey` and `lonKey` options in the second argument to the function call.'
       );
     }
 
