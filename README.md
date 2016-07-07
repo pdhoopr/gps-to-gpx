@@ -92,9 +92,9 @@ createGpx(waypoints[, options])
 
 ### Parameters
 
-1. `waypoints` (*Array*): Required. An array of GPS waypoint data. Each point should be an object containing, at the very least, keys representing a coordinate's latitude and longitude values. These keys are assumed to be "latitude" and "longitude" by default, but can be customized (see `options`).
+1. `waypoints` (*array*): Required. An array of GPS waypoint data. Each point should be an object containing, at the very least, keys representing a coordinate's latitude and longitude values. These keys are assumed to be "latitude" and "longitude" by default, but can be customized (see `options`).
 
-2. `options` (*Object*): Optional. An object literal of options that customize/override the default library settings. If any options are omitted, the settings will use the default values listed below:
+2. `options` (*object*): Optional. An object literal of options that customize/override the default library settings. If any options are omitted, the settings will use the default values listed below:
   - `activityName`: "Everyday I'm hustlin'"
   - `eleKey`: 'elevation'
   - `latKey`: 'latitude'
@@ -103,7 +103,7 @@ createGpx(waypoints[, options])
   - `timeKey`: 'time'
 
 ### Returns
-(*String*): A GPX (a form of XML) string composed of the given waypoints and options.
+(*string*): A GPX (a form of XML) string composed of the given waypoints and options.
 
 ## Examples
 

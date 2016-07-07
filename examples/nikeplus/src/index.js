@@ -23,5 +23,5 @@ async function main() {
   writeActivityDataToFiles(activityDataWithEstimatedTime, 'with-estimated-time');
 }
 
-// Necessary in order to start the example.
+// We need to call the example in order for it to actually start.
 main();

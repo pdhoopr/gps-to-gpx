@@ -37,9 +37,9 @@ function writeActivityDataToGpxFile(activity, fileName, folder) {
  * Create GPX files for each activity. Loop through each activity in the data, extract the day and
  * time of the activity that makeup the base filename, then call the function to create a GPX file.
  *
- * @param {Array} data - An array containing objects of activity data for each Nike+ activity
+ * @param {array} data - An array containing objects of activity data for each Nike+ activity
  * returnedby the API.
- * @param {String} folder - A string specifiying the folder name where files should be saved.
+ * @param {string} folder - A string specifiying the folder name where files should be saved.
  *
  * @returns {Void}
  */
