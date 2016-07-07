@@ -1,7 +1,7 @@
 # GPS to GPX
 A simple tool for converting an array of GPS points to GPX.
 
-This is a fairly minimal library that uses GPS waypoint data from an activity (a run, bike ride, hike, etc.) to create a GPX file. Although the use cases are a bit limited, it can be helpful in specific situations.
+This is a fairly minimal library that formats GPS waypoint data from an activity (a run, bike ride, hike, etc.) as GPX. Although the use cases are a bit limited, it can be helpful in specific situations.
 
 ## The Hook
 Let's say you use a service like [Nike+](https://www.nike.com/US/en_US/p/activity) for tracking your runs. Being a curious person, you're interested in trying out some other services to see what they're like, or maybe you've decided to start doing some cycling and now want to track all your different activities in one place, like [Strava](https://www.strava.com/dashboard), and you want to take your data with you. A common way of doing this is to download your data as a GPX file and import it into other services. Nike+ (inexplicably) doesn't let you export data from your runs, but it does have an API that lets you grab JSON data for each activity. So, you're kind of stuck; you have some JSON data but you want GPX files. That's where this library comes in handy!
@@ -23,7 +23,7 @@ You might have JSON data that looks like this:
 }
 ```
 
-Let's assume the JSON data above has been saved to a `data` variable and you're using ES2015 (if you're using another environment, you can find the appropriate steps in the [installation instructions](#user-content-installation)). Now you can import the top-level `createGpx` function and call it like so :
+Let's assume the JSON data above has been saved to a `data` variable and you're using ES2015 (if you're using another environment, you can find the appropriate steps in the [installation instructions](#user-content-installation)). Now you can `import` the top-level `createGpx` function and call it like so :
 
 ```js
 import { createGpx } from 'gps-to-gpx';
@@ -36,7 +36,7 @@ const gpx = createGpx(data.waypoints, {
 console.log(gpx);
 ```
 
-For all your hard work, you'll be rewarded with a GPX string in your console that looks like this:
+For all your hard work, you'll be rewarded with GPX output in your console that looks like this:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
