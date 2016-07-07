@@ -31,7 +31,7 @@ export async function getActivities(url) {
  * @param {String} activityId - A string with the ID for the activity we want to get GPS waypoints
  * for.
  *
- * NOTE: You'll need an access token in order to use the API. Check out the "constants.js" file for
+ * NOTE: You'll need an access token in order to use the API. Check out the `constants.js` file for
  * more info.
  *
  * @returns {Object} An object containing the GPS waypoints from the API response.

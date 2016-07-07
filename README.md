@@ -27,9 +27,9 @@ In an ES2015 environment, you can import the library like this:
 import { createGpx } from 'gps-to-gpx';
 ```
 
-If you're not using modules via something like [webpack](http://webpack.github.io/), [Browserify](http://browserify.org/), or [Node.js](https://nodejs.org/en/), then the UMD build might interest you. The `gps-to-gpx` library comes with a "dist" folder containing development and (minified) production UMD builds that can be used without a module bundler. In a UMD environment, GPS to GPX will be available as the `window.GpsToGpx` variable.
+If you're not using modules via something like [webpack](http://webpack.github.io/), [Browserify](http://browserify.org/), or [Node.js](https://nodejs.org/en/), then the UMD build might interest you. The `gps-to-gpx` library comes with a `dist` folder containing development and (minified) production UMD builds that can be used without a module bundler. In a UMD environment, GPS to GPX will be available as the `window.GpsToGpx` variable.
 
-The source code is written in ES2015 but is compiled to ES5 ahead of time in both CommonJS ("lib" folder) and UMD ("dist" folder) builds.
+The source code is written in ES2015 but is compiled to ES5 ahead of time in both CommonJS (`lib` folder) and UMD (`dist` folder) builds.
 
 ## Usage
 
@@ -107,14 +107,16 @@ createGpx(waypoints[, options])
 
 ## Examples
 
-If you're not sure where to start with the GPS to GPX library, maybe the example(s) below can help. You can clone the repository and navigate to "gps-to-gpx/examples/{example_name}" to get started. An example should work like a normal project, so to use it you can first do `npm install`, then check out the npm scripts in the "package.json" to see what else is available (for example, `npm start` might run the example or `npm run clean` might cleanup any output artifacts).
+If you're not sure where to start with the GPS to GPX library, maybe the example(s) below can help. You can clone the repository and navigate to `gps-to-gpx/examples/{{ example_name }}` to get started. An example should work like a normal project, so to use it you can first do `npm install`, then check out the npm scripts in the `package.json` to see what else is available (for example, `npm start` might run the example or `npm run clean` might cleanup any output artifacts).
 
 - [Nike+](https://github.com/impatrickhooper/gps-to-gpx/tree/master/examples/nikeplus): This is a sample Node.js project that pulls all valid activities from the Nike+ API and saves them as GPX files. Documentation can be found as comments throughout the example code. NOTE: Since the Nike+ API does not include timestamps, the example saves GPX files in 2 ways: without time and with estimated time. The estimated timestamps are very rough calculations based on the duration of the activity and number of waypoints. Please keep in mind this is just a quick example, so I wouldn't recommend using the estimated timestamps unless you're in a pinch. I have to imagine there are better ways.
 
 ## Roadmap
 
-This project was created primarily as a hobby project to help familiarize myself with the process of creating a JavaScript library. For that reason, and because it has pretty targeted use cases, it probably won't get a ton of attention. Hopefully, someone somewhere finds it useful and does something super cool with it. If that person is you, I'd love to hear from you! Also, if you have any feature requests or encounter any problems, please feel free to add them to the [issue tracker](https://github.com/impatrickhooper/gps-to-gpx/issues) or submit a pull request. Thank you!
+This project was created primarily as a hobby project to help familiarize myself with the process of creating a JavaScript library. For that reason, and because it has pretty targeted use cases, it probably won't get a ton of attention. Hopefully, someone somewhere finds it useful and does something super cool with it. If that person is you, I'd love to hear from you!
+
+If you have any feature requests or encounter any problems, please use the [contributing guidelines](https://github.com/impatrickhooper/gps-to-gpx/blob/master/CONTRIBUTING.md) to determine your next move. Thank you!
 
 ## License
 
-MIT
+GPS to GPX is released under the [MIT License](https://github.com/impatrickhooper/gps-to-gpx/blob/master/LICENSE).

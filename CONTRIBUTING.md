@@ -7,11 +7,11 @@
   * Use `npm run lint` to run [ESLint](http://eslint.org/) on the JavaScript source and test code.
   * Use `npm test` to run the tests for this project.
   * Use `npm test:watch` to run tests for this project and rerun them when files change.
-  * Use `npm run clean:commonjs` to remove the compiled "lib" folder.
-  * Use `npm run clean:es` to remove the compiled "es" folder.
-  * Use `npm run clean:umd` to remove the compiled "dist" folder.
-  * Use `npm run clean` to clean all build folders ("lib", "es", and "dist").
-  * Use `npm run build:commonjs` to remove the "lib" folder and build the CommonJS version of this library.
-  * Use `npm run build:es` to remove the "es" folder and build the ECMAScript version of this library.
-  * Use `npm run build:umd` to remove the "dist" folder and build the UMD (browser-compatible) version of this library.
+  * Use `npm run clean:commonjs` to remove the compiled `lib` folder.
+  * Use `npm run clean:es` to remove the compiled `es` folder.
+  * Use `npm run clean:umd` to remove the compiled `dist` folder.
+  * Use `npm run clean` to clean all build folders (`lib`, `es`, and `dist`).
+  * Use `npm run build:commonjs` to remove the `lib` folder and build the CommonJS version of this library.
+  * Use `npm run build:es` to remove the `es` folder and build the ECMAScript version of this library.
+  * Use `npm run build:umd` to remove the `dist` folder and build the UMD (browser-compatible) version of this library.
   * Use `npm run build` to clean all old build folders and rebuild all versions of the library.
