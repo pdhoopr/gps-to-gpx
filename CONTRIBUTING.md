@@ -4,11 +4,11 @@ Hi there! Thanks for considering contributing to this project. Any contributions
 
 ## Bugs, Features, Feedback, and Help/Questions
 
-Feel free to use this project's [issue tracker](https://github.com/impatrickhooper/gps-to-gpx/issues) to report bugs, request features, leave feedback, or get help/ask questions! Please just look through existing issues first to make sure yours hasn't already been addressed. Also, try to make your issues as descriptive, clear, and organized as possible so they are easier to understand and respond to. Things like spacing, indentation, and syntax highlight can go a long way with respect to clarity.
+Feel free to use this project's [issue tracker](https://github.com/impatrickhooper/gps-to-gpx/issues) to report bugs, request features, leave feedback, or get help/ask questions! Please just look through existing issues first to make sure yours hasn't already been addressed. Also, try to make your issues as descriptive, clear, and organized as possible so they are easier to understand and respond to. Little things like spacing, indentation, and syntax highlighting can make a big difference.
 
 ## Pull Requests
 
-If you've decided you'd like to contribute to this project, that's great, thank you! You can check out the [issue tracker](https://github.com/impatrickhooper/gps-to-gpx/issues) to see if there's an open issue that you're interested in working on, or open a new one if you have something specific you want to do but doesn't exist yet.
+If you've decided you'd like to contribute to this project, that's great; thank you! You can check out the [issue tracker](https://github.com/impatrickhooper/gps-to-gpx/issues) to see if there's an open issue that you're interested in working on, or open a new one if you have something specific you want to do but doesn't exist yet.
 
 Before you start developing, let's first try and have a discussion about an issue and your proposed solution. It would suck for you to do any amount of work only to find out it won't be accepted for some reason. Once a proposed approach has been agreed upon, go wild!
 
@@ -42,7 +42,7 @@ To create production builds for CommonJS (in the `lib` folder), ES (in the `es` 
 npm run build
 ```
 
-To create individual builds for each environment, you can use one of the following:
+To independently create a build for each environment, you can use one of the following:
 
 ```
 npm run build:commonjs
@@ -60,7 +60,7 @@ npm start
 
 ### Linting, Testing, and Code Coverage
 
-The project is valid when it has no lint errors, passes all the tests, and meets the specified code coverage thresholds. You can check for all these things at once using:
+The project is valid when it has no lint errors, passes all the tests, and meets the specified code coverage thresholds. You can check all these things at once using:
 
 ```
 npm run validate
