@@ -66,7 +66,7 @@ The project is valid when it has no lint errors, passes all the tests, and meets
 npm run validate
 ```
 
-To just run [ESLint](http://eslint.org/), use:
+To just run [ESLint](http://eslint.org/) (for the `examples`, `src`, and `test` folders), use:
 
 ```
 npm run lint
@@ -133,6 +133,10 @@ To remove just the UMD build folder (`dist`), use:
 ```
 npm run clean:umd
 ```
+
+## Examples
+
+More in-depth, realistic uses for the GPS to GPX library can be found in the `examples` folder. You're more than welcome to add your own example, just be sure to look over the existing ones and try to follow similar principles. Each example gets its own folder at `examples/{{ example_name }}`. Verify any code you write doesn't throw lint errors using `npm run lint`.
 
 ## Thanks
 
