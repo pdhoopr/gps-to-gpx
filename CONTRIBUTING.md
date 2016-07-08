@@ -136,7 +136,7 @@ npm run clean:umd
 
 ## Examples
 
-More in-depth, realistic uses for the GPS to GPX library can be found in the `examples` folder. You're more than welcome to add your own example, just be sure to look over the existing ones and try to follow similar principles. Each example gets its own folder at `examples/{{ example_name }}`. Verify any code you write doesn't throw lint errors using `npm run lint`.
+In-depth, realistic use cases for the GPS to GPX library can be found in the `examples` folder. You're more than welcome to add your own example, just be sure to look over the existing ones and try to follow similar principles. Each example gets its own folder at `examples/{{ example_name }}`. Verify any code you write doesn't throw lint errors using `npm run lint`.
 
 ## Thanks
 
