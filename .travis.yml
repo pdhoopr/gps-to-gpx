@@ -1,0 +1,23 @@
+language: "node_js"
+node_js:
+  - "6"
+  - "5"
+  - "4"
+cache:
+  directories:
+    - "node_modules"
+script:
+  - npm run validate
+  - npm run build
+deploy:
+  provider: npm
+  email: "patrick.d.hooper@gmail.com"
+  api_key:
+    secure: "XNvmY00QKpj5a0NRgU7oMsMBoSEwTi6sxdTZPzw+P1IBhqXHmznEROtmFTSsRVoTHlNhMtL6K9LLNYH1LU0A1LbFGMkpn3pOhw6FdJCuSkLKiJ0cyEZPKM/ZDVk8v9qQ9WtyUsd6Q/p4AGAp94elW2AiK/pYWtm1h0F81walW5RlExwoN5qnMH9R5NPSCHqLhI8quX+/Q9IAXa+RiyHftJsV2hvKX/19+MoHVNcuc40bVi4anloF2BwB00ptInISpiG6mZwOEOhuafrF3HH5KW1VyAoS9lps4NTIK+YK03SGOu/7YWKT3P/EEh9cRbXnuouxb3b/Qg0BFHyo9T/Nanj5sKBOvaheS4h4jPMCrn6t0g8GXfbNA/24otDQZ7SHCVmQRxlXZg9BukuST+BfmfYfh4G4EY3OfYN0HxIMbx6wp7O7kPteukh2rQ3Rotnff+vdTaMLUBHEDWLhqvu7rkYP5LdBvRHKAfauvtKwXEjFmPWmDXm6nWfOqEz9YZCLNnv8a3T+19Ssq2CcS4HQa0ITfVRTmXyX8Hm3U2mM2+de0H/QRgG9hB87FNuut6ZsjcIUxex0ZWfZjlwVisZSB1rEziLiP9GpsgEasRGMke7OKwFuVQkRydpFpcQrG/cOauzLRDmGK3GXd7dByVdrgVUSbVXOdszFRiLBEqXRgCc="
+  skip_cleanup: true
+  on:
+    tags: true
+branches:
+  only:
+    - master
+    - /^v\d+\.\d+\.\d.*$/
