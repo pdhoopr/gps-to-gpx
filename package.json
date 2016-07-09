@@ -16,10 +16,12 @@
   "license": "MIT",
   "author": "Patrick Hooper <patrick.d.hooper@gmail.com> (http://patrick.hoopr.io)",
   "files": [
-    "*.md",
+    "CHANGELOG.md",
     "dist",
     "es",
     "lib",
+    "LICENSE",
+    "README.md",
     "src"
   ],
   "main": "lib/index.js",
@@ -42,6 +44,7 @@
     "coverage:report": "npm run coverage && nyc report --reporter=lcov",
     "coverage": "npm run clean:coverage && nyc npm t",
     "lint": "eslint examples src test",
+    "prepublish": "npm run clean && npm run validate && npm run build",
     "start": "cross-env BABEL_ENV=commonjs babel src --watch --out-dir lib",
     "test:watch": "npm test -- --watch",
     "test": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register --recursive",
