@@ -140,4 +140,4 @@ In-depth, realistic use cases for the GPS to GPX library can be found in the `ex
 
 ## Thanks
 
-A very big THANK YOU to anyone who contributes now or in the future!
+A very big thank you to anyone who contributes now or in the future!
