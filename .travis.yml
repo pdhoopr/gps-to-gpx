@@ -9,6 +9,8 @@ cache:
 script:
   - npm run validate
   - npm run build
+after_success:
+  - "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
 deploy:
   provider: npm
   email: "patrick.d.hooper@gmail.com"
