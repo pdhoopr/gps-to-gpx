@@ -1,6 +1,6 @@
 {
   "name": "gps-to-gpx",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0",
   "description": "A simple tool for converting an array of GPS points to GPX.",
   "keywords": [
     "gps",
