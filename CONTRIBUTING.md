@@ -116,12 +116,6 @@ To remove just the CommonJS build folder (`lib`), use:
 npm run clean:commonjs
 ```
 
-To remove just the coverage folders (`.nyc_output` and `coverage`), use:
-
-```
-npm run clean:coverage
-```
-
 To remove just the ES build folder (`es`), use:
 
 ```
@@ -132,6 +126,12 @@ To remove just the UMD build folder (`dist`), use:
 
 ```
 npm run clean:umd
+```
+
+To remove just the coverage folders (`.nyc_output` and `coverage`), use:
+
+```
+npm run clean:coverage
 ```
 
 ## Examples
