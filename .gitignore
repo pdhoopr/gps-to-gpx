@@ -1,8 +1,8 @@
-.nyc_output
-*.log
-coverage/
-dist/
-es/
-examples/**/data/**/*.gpx
-lib/
+/.nyc_output/
+/coverage/
+/dist/
+/es/
+/examples/**/data/**/*.gpx
+/lib/
 node_modules/
+npm-debug.log
