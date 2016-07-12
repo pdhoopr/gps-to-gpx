@@ -19,76 +19,68 @@ A workflow for pull requests will usually look something like this (for more inf
 - Fork the repository.
 - Create a new feature branch based off of the master branch.
 - Get to work!
-- When you think you're done, verify there are no linting errors, all tests pass, and the code coverage thresholds are met (try `npm run validate`).
+- When you think you're done, verify there are no linting errors, all tests pass, and the code coverage thresholds are met (use `npm run validate`).
 - Submit a pull request and reference any issues it addresses.
 
 Please try and keep your pull request's scope focused and commit history streamlined. You might also want to take some time to familiarize yourself with the rest of the project so you know the existing styles and conventions to adhere to (linting will help with this, and there is also an `.editorconfig` file).
 
 ## Development
 
-All development will likely start by forking and then cloning the repository:
+All development will likely start by forking your own copy of the repository and then cloning it.
+
+To clone the repo, use:
 
 ```
-git clone https://github.com/{{ your_username }}/gps-to-gpx.git
+git clone https://github.com/{{ your_github_username }}/gps-to-gpx.git
 ```
 
 You'll then want to navigate into the cloned project directory and run `npm install` (you'll need [Node.js](https://nodejs.org/en/) & [npm](https://www.npmjs.com/)) to install the project's dependencies.
 
-### Building
+### Watching
 
-To create production builds for CommonJS (in the `lib` folder), ES (in the `es` folder), and UMD (in the `dist` folder) environments all at once, use:
+Before long, you're going to get tired of doing certain things manually (like running tests) whenever you make changes to your code. So let's go over some convenience scripts up front!
 
-```
-npm run build
-```
-
-To independently create a build for each environment, you can use one of the following:
+To continuously watch your source code (in the `src` folder) and automatically recreate the CommonJS build (in the `lib` folder) when things change, use:
 
 ```
-npm run build:commonjs
-npm run build:es
-npm run build:umd
+npm run watch:src
 ```
 
-*Note that before each individual build script, the accompanying clean script is run to make sure a fresh build is produced each time.*
-
-While you're writing code, it can be helpful to watch the source code for changes and rebuild the library when things change. To do this (via [Babel](http://babeljs.io/), rebuilding only the CommonJs `lib` folder), use:
+To continuously watch your source code and rerun the tests when something changes, use:
 
 ```
-npm start
+npm run watch:test
 ```
 
 ### Linting, Testing, and Code Coverage
 
-The project is valid when it has no lint errors, passes all the tests, and meets the specified code coverage thresholds. You can check all these things at once using:
+At some point &#8212; usually before creating the all the builds of the library that will be released &#8212; you're going to want to validate your work. The library is considered valid when it has no lint errors, passes all the tests, and meets the code coverage thresholds (100% for everything right now).
+
+To perform all the checks (linting, tests, and code coverage), use:
 
 ```
 npm run validate
 ```
 
-To just run [ESLint](http://eslint.org/) (for the `examples`, `src`, and `test` folders), use:
+To just run [ESLint](http://eslint.org/) (on the `examples`, `src`, and `test` folders), use:
 
 ```
 npm run lint
 ```
 
-To just run the tests with [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/), use:
+To just run the tests (with [Mocha](https://mochajs.org/) and [Chai](http://chaijs.com/)), use:
 
 ```
 npm test
 ```
 
-To watch your source code for changes and rerun the tests when something is updated, use:
-
-```
-npm run test:watch
-```
-
-Code coverage is generated using [nyc](https://github.com/istanbuljs/nyc). To just get the coverage of the tests, use:
+To just get the coverage of the tests and generate a nicely formatted report in the `coverage` folder (with [nyc](https://github.com/istanbuljs/nyc)), use:
 
 ```
 npm run coverage
 ```
+
+*NOTE: The `clean:coverage` [clean script](#user-content-cleaning) is automatically run before the `coverage` script to make sure code coverage info is fresh each time.*
 
 To get the coverage and verify it meets the specified thresholds, use:
 
@@ -96,41 +88,44 @@ To get the coverage and verify it meets the specified thresholds, use:
 npm run coverage:check
 ```
 
-To get the coverage and generate a nicely formatted report (in the `coverage` folder), use:
+*NOTE: There is an additional coverage script, `coverage:report`, that sends code coverage data to [Coveralls](https://coveralls.io/) for reporting. For this project, that script should almost always be run only on [Travis CI](https://travis-ci.org/). So although technically it does exist, you can just pretend it doesn't!*
+
+### Building
+
+Eventually, you're going to want to build the library &#8212; usually because you've finished development and are ready to release all your hard work to the world. You can create a build for 3 environments: CommonJS, ES, and UMD.
+
+To create a build for every environment (CommonJS in the `lib` folder, ES in the `es` folder, UMD in the `dist` folder), use:
 
 ```
-npm run coverage:report
+npm run build
 ```
+
+To create a build for just a specific environment, you can use one of the following:
+
+```
+npm run build:commonjs
+npm run build:es
+npm run build:umd
+```
+
+*NOTE: The accompanying [clean script](#user-content-cleaning) is automatically run before each individual build script to make sure a fresh build is produced each time.*
 
 ### Cleaning
 
-Sometimes when it's all said and done, you just want to clean some stuff. To remove all build and coverage artifacts, use:
+Sometimes it can be therapeutic to just clean some stuff. Seriously. This project doesn't try to take that away from you.
+
+To remove all the builds (CommonJS in the `lib` folder, ES in the `es` folder, UMD in the `dist` folder) and code coverage artifacts (in the `.nyc_output` and `coverage` folders), use:
 
 ```
 npm run clean
 ```
 
-To remove just the CommonJS build folder (`lib`), use:
+To remove the output from just a specific build or the code coverage, you can use one of the following:
 
 ```
 npm run clean:commonjs
-```
-
-To remove just the ES build folder (`es`), use:
-
-```
 npm run clean:es
-```
-
-To remove just the UMD build folder (`dist`), use:
-
-```
 npm run clean:umd
-```
-
-To remove just the coverage folders (`.nyc_output` and `coverage`), use:
-
-```
 npm run clean:coverage
 ```
 
