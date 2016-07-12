@@ -50,9 +50,9 @@ npm run build:es
 npm run build:umd
 ```
 
-*Note that before each individual build script, the accompanying [clean script](#user-content-cleaning) is run to make sure a fresh build is produced each time.*
+*NOTE: Before each individual build script, the accompanying [clean script](#user-content-cleaning) is run to make sure a fresh build is produced each time.*
 
-While you're developing, it can be helpful to watch the source code and rebuild the library when things change. To do this (via [Babel](http://babeljs.io/), rebuilding only the CommonJs `lib` folder), use:
+While you're developing, it can be helpful to watch the source code and rebuild the library when things change. To do this (via [Babel](http://babeljs.io/), rebuilding only the CommonJS `lib` folder), use:
 
 ```
 npm start
@@ -84,7 +84,7 @@ To watch your source code and rerun the tests when something changes, use:
 npm run test:watch
 ```
 
-Code coverage is generated using [nyc](https://github.com/istanbuljs/nyc). To just get the coverage of the tests, use:
+Code coverage is generated using [nyc](https://github.com/istanbuljs/nyc). To just get the coverage of the tests (with a nicely formatted report in the `coverage` folder), use:
 
 ```
 npm run coverage
@@ -96,15 +96,11 @@ To get the coverage and verify it meets the specified thresholds, use:
 npm run coverage:check
 ```
 
-To get the coverage and generate a nicely formatted report (in the `coverage` folder), use:
-
-```
-npm run coverage:report
-```
+*NOTE: There is an additional coverage script, `npm run coverage:report`, that sends code coverage data to [Codecov](https://codecov.io) for reporting. For this project, that script should almost always be run only on [Travis CI](https://travis-ci.org/). So while it technically does exist, you can just pretend it doesn't!*
 
 ### Cleaning
 
-To remove all builds (CommonJS in the `lib` folder, ES in the `es` folder, UMD in the `dist` folder) and code coverage artifacts (in the `.nyc_output` and `coverage` folders), use:
+To remove all the builds (CommonJS in the `lib` folder, ES in the `es` folder, UMD in the `dist` folder) and code coverage artifacts (in the `.nyc_output` and `coverage` folders), use:
 
 ```
 npm run clean
