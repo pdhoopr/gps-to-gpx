@@ -36,13 +36,13 @@ You'll then want to navigate into the cloned project directory and run `npm inst
 
 ### Building
 
-To create builds for CommonJS (in the `lib` folder), ES (in the `es` folder), and UMD (in the `dist` folder) environments all at once, use:
+To create a build for all environments (CommonJS in the `lib` folder, ES in the `es` folder, UMD in the `dist` folder), use:
 
 ```
 npm run build
 ```
 
-To independently create a build for each environment, you can use one of the following:
+To create a build for just a specific environment, you can use one of the following:
 
 ```
 npm run build:commonjs
@@ -104,33 +104,18 @@ npm run coverage:report
 
 ### Cleaning
 
-Sometimes when it's all said and done, you just want to clean some stuff. To remove all build and coverage artifacts, use:
+To remove all builds (CommonJS in the `lib` folder, ES in the `es` folder, UMD in the `dist` folder) and code coverage artifacts (in the `.nyc_output` and `coverage` folders), use:
 
 ```
 npm run clean
 ```
 
-To remove just the CommonJS build folder (`lib`), use:
+To remove the output from just a specific build or the code coverage, you can use one of the following:
 
 ```
 npm run clean:commonjs
-```
-
-To remove just the ES build folder (`es`), use:
-
-```
 npm run clean:es
-```
-
-To remove just the UMD build folder (`dist`), use:
-
-```
 npm run clean:umd
-```
-
-To remove just the coverage folders (`.nyc_output` and `coverage`), use:
-
-```
 npm run clean:coverage
 ```
 
