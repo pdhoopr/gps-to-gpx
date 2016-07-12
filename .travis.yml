@@ -13,12 +13,8 @@ after_success:
   - "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
 deploy:
   provider: npm
-  email: "patrick.d.hooper@gmail.com"
-  api_key: "$NPM_AUTH_TOKEN"
+  email: "$NPM_LOGIN"
+  api_key: "$NPM_TOKEN"
   skip_cleanup: true
   on:
     tags: true
-branches:
-  only:
-    - master
-    - /^v\d+\.\d+\.\d.*$/
