@@ -36,7 +36,7 @@ You'll then want to navigate into the cloned project directory and run `npm inst
 
 ### Building
 
-To create production builds for CommonJS (in the `lib` folder), ES (in the `es` folder), and UMD (in the `dist` folder) environments all at once, use:
+To create builds for CommonJS (in the `lib` folder), ES (in the `es` folder), and UMD (in the `dist` folder) environments all at once, use:
 
 ```
 npm run build
@@ -50,9 +50,9 @@ npm run build:es
 npm run build:umd
 ```
 
-*Note that before each individual build script, the accompanying clean script is run to make sure a fresh build is produced each time.*
+*Note that before each individual build script, the accompanying [clean script](#user-content-cleaning) is run to make sure a fresh build is produced each time.*
 
-While you're writing code, it can be helpful to watch the source code for changes and rebuild the library when things change. To do this (via [Babel](http://babeljs.io/), rebuilding only the CommonJs `lib` folder), use:
+While you're developing, it can be helpful to watch the source code and rebuild the library when things change. To do this (via [Babel](http://babeljs.io/), rebuilding only the CommonJs `lib` folder), use:
 
 ```
 npm start
@@ -78,7 +78,7 @@ To just run the tests with [Mocha](https://mochajs.org/) and [Chai](http://chaij
 npm test
 ```
 
-To watch your source code for changes and rerun the tests when something is updated, use:
+To watch your source code and rerun the tests when something changes, use:
 
 ```
 npm run test:watch

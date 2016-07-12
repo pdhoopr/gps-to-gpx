@@ -31,23 +31,23 @@
     "url": "https://github.com/impatrickhooper/gps-to-gpx"
   },
   "scripts": {
+    "build": "npm-run-all --parallel build:*",
     "build:commonjs": "npm run clean:commonjs && cross-env BABEL_ENV=commonjs babel src --out-dir lib",
     "build:es": "npm run clean:es && cross-env BABEL_ENV=es babel src --out-dir es",
     "build:umd": "npm run clean:umd && cross-env BABEL_ENV=commonjs NODE_ENV=development webpack src/index.js dist/gps-to-gpx.js && cross-env BABEL_ENV=commonjs NODE_ENV=production webpack src/index.js dist/gps-to-gpx.min.js",
-    "build": "npm-run-all --parallel build:*",
+    "clean": "npm-run-all --parallel clean:**",
     "clean:commonjs": "rimraf lib",
     "clean:coverage": "rimraf .nyc_output coverage",
     "clean:es": "rimraf es",
     "clean:umd": "rimraf dist",
-    "clean": "npm-run-all --parallel clean:**",
+    "coverage": "npm run clean:coverage && nyc npm t",
     "coverage:check": "npm run coverage && nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
     "coverage:report": "npm run coverage && nyc report --reporter=lcov",
-    "coverage": "npm run clean:coverage && nyc npm t",
     "lint": "eslint examples src test",
     "prepublish": "npm run clean && npm run validate && npm run build",
     "start": "cross-env BABEL_ENV=commonjs babel src --watch --out-dir lib",
-    "test:watch": "npm test -- --watch",
     "test": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register --recursive",
+    "test:watch": "npm test -- --watch",
     "validate": "npm run lint && npm run coverage:check"
   },
   "dependencies": {
