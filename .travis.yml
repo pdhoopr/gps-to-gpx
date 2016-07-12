@@ -10,7 +10,7 @@ script:
   - npm run validate
   - npm run build
 after_success:
-  - "./node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls"
+  - "npm run coverage:report"
 deploy:
   provider: npm
   email: "$NPM_LOGIN"
