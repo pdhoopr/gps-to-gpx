@@ -5,7 +5,7 @@ A simple tool for converting an array of GPS points to GPX.
 This is a fairly minimal library that formats GPS waypoint data from an activity (a run, bike ride, hike, etc.) as GPX. Although the use cases are a bit limited, it can be helpful in specific situations.
 
 [![Build Status](https://img.shields.io/travis/impatrickhooper/gps-to-gpx/master.svg?style=flat-square)](https://travis-ci.org/impatrickhooper/gps-to-gpx)
-[![Code Coverage](https://img.shields.io/coveralls/impatrickhooper/gps-to-gpx/master.svg?style=flat-square)](https://coveralls.io/github/impatrickhooper/gps-to-gpx)
+[![Code Coverage](https://img.shields.io/codecov/c/github/impatrickhooper/gps-to-gpx/master.svg?style=flat-square)](https://codecov.io/gh/impatrickhooper/gps-to-gpx)
 [![npm Version](https://img.shields.io/npm/v/gps-to-gpx.svg?style=flat-square)](https://www.npmjs.com/package/gps-to-gpx)
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/impatrickhooper/gps-to-gpx/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/impatrickhooper/gps-to-gpx/blob/master/CONTRIBUTING.md)
