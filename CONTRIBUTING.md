@@ -88,7 +88,7 @@ To get the coverage and verify it meets the specified thresholds, use:
 npm run coverage:check
 ```
 
-*NOTE: There is an additional coverage script, `coverage:report`, that sends code coverage data to [Coveralls](https://coveralls.io/) for reporting. For this project, that script should almost always be run only on [Travis CI](https://travis-ci.org/). So although technically it does exist, you can just pretend it doesn't!*
+*NOTE: There is an additional coverage script, `coverage:report`, that sends code coverage data to [Codecov](https://codecov.io/) for reporting. For this project, that script should almost always be run only on [Travis CI](https://travis-ci.org/). So although technically it does exist, you can just pretend it doesn't!*
 
 ### Building
 
