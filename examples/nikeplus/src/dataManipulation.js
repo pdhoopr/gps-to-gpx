@@ -67,7 +67,6 @@ export function filterActivityData(data) {
     .filter(activity => activity.activityId.search('-') === -1)
     .map(activity => ({
       activityId: activity.activityId,
-      activityTimeZone: activity.activityTimeZone,
       activityType: activity.activityType,
       duration: activity.metricSummary.duration,
       startTime: activity.startTime,
