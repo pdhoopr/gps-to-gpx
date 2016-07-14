@@ -10,7 +10,7 @@ script:
   - npm run validate
   - npm run build
 after_success:
-  - "npm run coverage:report"
+  - "./node_modules/.bin/codecov"
 deploy:
   provider: npm
   email: "$NPM_LOGIN"

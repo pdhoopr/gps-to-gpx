@@ -41,12 +41,10 @@
     "clean:es": "rimraf es",
     "clean:umd": "rimraf dist",
     "coverage": "npm run clean:coverage && nyc --reporter=lcov --reporter=text npm test",
-    "coverage:check": "npm run coverage && nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
-    "coverage:report": "codecov",
     "lint": "eslint examples src test",
     "prepublish": "not-in-install && (npm run validate && npm run build) || in-install",
     "test": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register --recursive",
-    "validate": "npm-run-all --parallel lint coverage:check",
+    "validate": "npm-run-all --parallel lint coverage",
     "watch:src": "cross-env BABEL_ENV=commonjs babel src --watch --out-dir lib",
     "watch:test": "npm test -- --watch"
   },

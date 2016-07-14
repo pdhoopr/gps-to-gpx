@@ -19,7 +19,7 @@ A workflow for pull requests will usually look something like this (for more inf
 - Fork the repository.
 - Create a new feature branch based off of the master branch.
 - Get to work!
-- When you think you're done, verify there are no linting errors, all tests pass, and the code coverage thresholds are met (use `npm run validate`).
+- When you think you're done, verify there are no linting errors and all tests pass. Feel free to take a look at the code coverage, too.
 - Submit a pull request and reference any issues it addresses.
 
 Please try and keep your pull request's scope focused and commit history streamlined. You might also want to take some time to familiarize yourself with the rest of the project so you know the existing styles and conventions to adhere to (linting will help with this, and there is also an `.editorconfig` file).
@@ -54,9 +54,9 @@ npm run watch:test
 
 ### Linting, Testing, and Code Coverage
 
-At some point &#8212; usually before creating the all the builds of the library that will be released &#8212; you're going to want to validate your work. The library is considered valid when it has no lint errors, passes all the tests, and meets the code coverage thresholds (100% for everything right now).
+At some point &#8212; usually before creating the all the builds of the library that will be released &#8212; you're going to want to validate your work. The library is considered valid when it has no lint errors and passes all the tests.
 
-To perform all the checks (linting, tests, and code coverage), use:
+To perform all the checks (linting and testing) and report the code coverage, use:
 
 ```
 npm run validate
@@ -74,21 +74,13 @@ To just run the tests (with [Mocha](https://mochajs.org/) and [Chai](http://chai
 npm test
 ```
 
-To just get the coverage of the tests and generate a nicely formatted report in the `coverage` folder (with [nyc](https://github.com/istanbuljs/nyc)), use:
+To just get the code coverage and generate a nicely formatted report in the `coverage` folder (with [nyc](https://github.com/istanbuljs/nyc)), use:
 
 ```
 npm run coverage
 ```
 
-*NOTE: The `clean:coverage` [clean script](#user-content-cleaning) is automatically run before the `coverage` script to make sure code coverage info is fresh each time.*
-
-To get the coverage and verify it meets the specified thresholds, use:
-
-```
-npm run coverage:check
-```
-
-*NOTE: There is an additional coverage script, `coverage:report`, that sends code coverage data to [Codecov](https://codecov.io/) for reporting. For this project, that script should almost always be run only on [Travis CI](https://travis-ci.org/). So although technically it does exist, you can just pretend it doesn't!*
+*NOTE: The `clean:coverage` [clean script](#user-content-cleaning) is automatically run before the `coverage` script to make sure the code coverage stats are fresh each time.*
 
 ### Building
 
