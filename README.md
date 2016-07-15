@@ -1,8 +1,8 @@
 # GPS to GPX
 
-A simple tool for converting an array of GPS points to GPX.
+A simple tool that uses GPS waypoint data to generate GPX.
 
-This is a fairly minimal library that formats GPS waypoint data from an activity (a run, bike ride, hike, etc.) as GPX. Although the use cases are a bit limited, it can be helpful in specific situations.
+This is a minimal JavaScript library that formats GPS waypoint data from an activity (a run, bike ride, hike, etc.) as GPX. Although the use cases are a bit limited, it can be helpful in specific situations.
 
 [![Build Status](https://img.shields.io/travis/impatrickhooper/gps-to-gpx/master.svg?style=flat-square)](https://travis-ci.org/impatrickhooper/gps-to-gpx)
 [![Code Coverage](https://img.shields.io/codecov/c/github/impatrickhooper/gps-to-gpx/master.svg?style=flat-square)](https://codecov.io/gh/impatrickhooper/gps-to-gpx)
@@ -120,9 +120,9 @@ createGpx(waypoints[, options])
 
 ## Examples
 
-If you're not sure where to start with the GPS to GPX library, maybe the example(s) below can help. You can clone the repository and navigate to `gps-to-gpx/examples/{{ example_name }}` to get started. An example should work like a normal project, so to use it you can first do `npm install`, then check out the npm scripts in the `package.json` to see what else is available (for example, `npm start` might run the example or `npm run clean` might cleanup any output artifacts).
+If you're not sure where to start with the GPS to GPX library, maybe the example(s) below can help:
 
-- [Nike+](https://github.com/impatrickhooper/gps-to-gpx/tree/master/examples/nikeplus): This is a sample Node.js project that pulls all valid activities from the Nike+ API and saves them as GPX files. Documentation can be found as comments throughout the example code. NOTE: Since the Nike+ API does not include timestamps, the example saves GPX files in 2 ways: without time and with estimated time. The estimated timestamps are very rough calculations based on the duration of the activity and number of waypoints. Please keep in mind this is just a quick example, so I wouldn't recommend using the estimated timestamps unless you're in a pinch. I have to imagine there are better ways (personally, I've successfully used [this tool from GOTOES](http://gotoes.org/strava/Add_Timestamps_To_GPX.php)).
+- [Nike+](https://github.com/impatrickhooper/gps-to-gpx/tree/master/examples/nikeplus#readme) ([source](https://github.com/impatrickhooper/gps-to-gpx/tree/master/examples/nikeplus))
 
 ## Roadmap
 
