@@ -9,9 +9,9 @@
     "nikeplus",
     "strava"
   ],
-  "homepage": "https://github.com/impatrickhooper/gps-to-gpx#readme",
+  "homepage": "https://github.com/pdhoopr/gps-to-gpx#readme",
   "bugs": {
-    "url": "https://github.com/impatrickhooper/gps-to-gpx/issues"
+    "url": "https://github.com/pdhoopr/gps-to-gpx/issues"
   },
   "license": "MIT",
   "author": "Patrick Hooper <patrick.d.hooper@gmail.com> (http://patrick.hoopr.io)",
@@ -28,7 +28,7 @@
   "jsnext:main": "es/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/impatrickhooper/gps-to-gpx"
+    "url": "https://github.com/pdhoopr/gps-to-gpx"
   },
   "scripts": {
     "build": "npm-run-all --parallel build:*",

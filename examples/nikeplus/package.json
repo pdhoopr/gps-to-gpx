@@ -4,14 +4,14 @@
   "description": "An example showing one possible use of the GPS to GPX library: getting Nike+ data and converting it to GPX files.",
   "homepage": "",
   "bugs": {
-    "url": "https://github.com/impatrickhooper/gps-to-gpx/issues"
+    "url": "https://github.com/pdhoopr/gps-to-gpx/issues"
   },
   "license": "MIT",
   "author": "Patrick Hooper <patrick.d.hooper@gmail.com> (http://patrick.hoopr.io)",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/impatrickhooper/gps-to-gpx"
+    "url": "https://github.com/pdhoopr/gps-to-gpx"
   },
   "scripts": {
     "clean": "rimraf data/**/*.gpx",

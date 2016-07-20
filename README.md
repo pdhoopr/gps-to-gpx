@@ -4,11 +4,11 @@ A simple tool that uses GPS waypoint data to generate GPX.
 
 This is a minimal JavaScript library that formats GPS waypoint data from an activity (a run, bike ride, hike, etc.) as GPX. Although the use cases are a bit limited, it can be helpful in specific situations.
 
-[![Build Status](https://img.shields.io/travis/impatrickhooper/gps-to-gpx/master.svg?style=flat-square)](https://travis-ci.org/impatrickhooper/gps-to-gpx)
-[![Code Coverage](https://img.shields.io/codecov/c/github/impatrickhooper/gps-to-gpx/master.svg?style=flat-square)](https://codecov.io/gh/impatrickhooper/gps-to-gpx)
+[![Build Status](https://img.shields.io/travis/pdhoopr/gps-to-gpx/master.svg?style=flat-square)](https://travis-ci.org/pdhoopr/gps-to-gpx)
+[![Code Coverage](https://img.shields.io/codecov/c/github/pdhoopr/gps-to-gpx/master.svg?style=flat-square)](https://codecov.io/gh/pdhoopr/gps-to-gpx)
 [![npm Version](https://img.shields.io/npm/v/gps-to-gpx.svg?style=flat-square)](https://www.npmjs.com/package/gps-to-gpx)
-[![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/impatrickhooper/gps-to-gpx/blob/master/LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/impatrickhooper/gps-to-gpx/blob/master/CONTRIBUTING.md)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/pdhoopr/gps-to-gpx/blob/master/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/pdhoopr/gps-to-gpx/blob/master/CONTRIBUTING.md)
 
 ## The Hook
 
@@ -122,7 +122,7 @@ createGpx(waypoints[, options])
 
 If you're not sure where to start with the GPS to GPX library, maybe the example(s) below can help:
 
-- [Nike+](https://github.com/impatrickhooper/gps-to-gpx/tree/master/examples/nikeplus#readme) ([source](https://github.com/impatrickhooper/gps-to-gpx/tree/master/examples/nikeplus))
+- [Nike+](https://github.com/pdhoopr/gps-to-gpx/tree/master/examples/nikeplus#readme) ([source](https://github.com/pdhoopr/gps-to-gpx/tree/master/examples/nikeplus))
 
 ## Roadmap
 
@@ -130,12 +130,12 @@ This project was created primarily as a hobby project to help familiarize myself
 
 ## Contributing
 
-Contributions from the community are welcome and encouraged! If you have any ideas, feature requests, bugs, etc., please use the [contributing guidelines](https://github.com/impatrickhooper/gps-to-gpx/blob/master/CONTRIBUTING.md) to determine your next move. Also note that this project follows a [code of conduct](https://github.com/impatrickhooper/gps-to-gpx/blob/master/CODE_OF_CONDUCT.md). Thank you!
+Contributions from the community are welcome and encouraged! If you have any ideas, feature requests, bugs, etc., please use the [contributing guidelines](https://github.com/pdhoopr/gps-to-gpx/blob/master/CONTRIBUTING.md) to determine your next move. Also note that this project follows a [code of conduct](https://github.com/pdhoopr/gps-to-gpx/blob/master/CODE_OF_CONDUCT.md). Thank you!
 
 ## Releases
 
-This project uses [Semantic Versioning](http://semver.org/). All releases are documented on the GitHub [releases page](https://github.com/impatrickhooper/gps-to-gpx/releases) and in the [changelog](https://github.com/impatrickhooper/gps-to-gpx/blob/master/CHANGELOG.md).
+This project uses [Semantic Versioning](http://semver.org/). All releases are documented on the GitHub [releases page](https://github.com/pdhoopr/gps-to-gpx/releases) and in the [changelog](https://github.com/pdhoopr/gps-to-gpx/blob/master/CHANGELOG.md).
 
 ## License
 
-GPS to GPX is released under the [MIT License](https://github.com/impatrickhooper/gps-to-gpx/blob/master/LICENSE).
+GPS to GPX is released under the [MIT License](https://github.com/pdhoopr/gps-to-gpx/blob/master/LICENSE).

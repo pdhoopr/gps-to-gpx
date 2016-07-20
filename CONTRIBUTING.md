@@ -1,14 +1,14 @@
 # Contributing
 
-Hi there! Thanks for considering contributing to this project. Any contributions from the community are more than welcome and much appreciated. Please note that by contributing to GPS to GPX, you agree to respect this project's [code of conduct](https://github.com/impatrickhooper/gps-to-gpx/blob/master/CODE_OF_CONDUCT.md).
+Hi there! Thanks for considering contributing to this project. Any contributions from the community are more than welcome and much appreciated. Please note that by contributing to GPS to GPX, you agree to respect this project's [code of conduct](https://github.com/pdhoopr/gps-to-gpx/blob/master/CODE_OF_CONDUCT.md).
 
 ## Bugs, Features, Feedback, and Help/Questions
 
-Feel free to use this project's [issue tracker](https://github.com/impatrickhooper/gps-to-gpx/issues) to report bugs, request features, leave feedback, or get help/ask questions! Please just look through existing issues first to make sure yours hasn't already been addressed. Also, try to make your issues as descriptive, clear, and organized as possible so they are easier to understand and respond to. Little things like spacing, indentation, and syntax highlighting can make a big difference.
+Feel free to use this project's [issue tracker](https://github.com/pdhoopr/gps-to-gpx/issues) to report bugs, request features, leave feedback, or get help/ask questions! Please just look through existing issues first to make sure yours hasn't already been addressed. Also, try to make your issues as descriptive, clear, and organized as possible so they are easier to understand and respond to. Little things like spacing, indentation, and syntax highlighting can make a big difference.
 
 ## Pull Requests
 
-If you've decided you'd like to contribute to this project, that's great; thank you! You can check out the [issue tracker](https://github.com/impatrickhooper/gps-to-gpx/issues) to see if there's an open issue that you're interested in working on, or open a new one if you have something specific you want to do but doesn't exist yet.
+If you've decided you'd like to contribute to this project, that's great; thank you! You can check out the [issue tracker](https://github.com/pdhoopr/gps-to-gpx/issues) to see if there's an open issue that you're interested in working on, or open a new one if you have something specific you want to do but doesn't exist yet.
 
 Before you start developing, let's first try and have a discussion about an issue and your proposed solution. It would suck for you to do any amount of work only to find out it won't be accepted for some reason. Once a proposed approach has been agreed upon, go wild!
 
