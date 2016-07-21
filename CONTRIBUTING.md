@@ -1,6 +1,6 @@
 # Contributing
 
-Hi there! Thanks for considering contributing to this project. Any contributions from the community are more than welcome and much appreciated. Please note that by contributing to GPS to GPX, you agree to respect this project's [code of conduct](https://github.com/pdhoopr/gps-to-gpx/blob/master/CODE_OF_CONDUCT.md).
+Hi there! Thanks for considering contributing to this project. Any contributions from the community are more than welcome and much appreciated. Please note that by contributing to GPS to GPX, you agree to respect this project's [code of conduct](CODE_OF_CONDUCT.md).
 
 ## Bugs, Features, Feedback, and Help/Questions
 
@@ -80,7 +80,7 @@ To just get the code coverage and generate a nicely formatted report in the `cov
 npm run coverage
 ```
 
-*NOTE: The `clean:coverage` [clean script](#user-content-cleaning) is automatically run before the `coverage` script to make sure the code coverage stats are fresh each time.*
+*NOTE: The [`clean:coverage` clean script](#cleaning) is automatically run before the `coverage` script to make sure the code coverage stats are fresh each time.*
 
 ### Building
 
@@ -100,7 +100,7 @@ npm run build:es
 npm run build:umd
 ```
 
-*NOTE: The accompanying [clean script](#user-content-cleaning) is automatically run before each individual build script to make sure a fresh build is produced each time.*
+*NOTE: The [accompanying clean script](#cleaning) is automatically run before each individual build script to make sure a fresh build is produced each time.*
 
 ### Cleaning
 

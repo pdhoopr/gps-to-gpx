@@ -4,8 +4,12 @@ This project uses [Semantic Versioning](http://semver.org/). All releases are do
 
 ## v1.0.0 (July 11, 2016)
 
-This is the initial major release of the GPS to GPX library. For more information, check out the [README](https://github.com/pdhoopr/gps-to-gpx/blob/master/README.md)!
+This release adds the last bit of polish, making it ready for prime time (its first major version).
+
+### Docs
+
+- Make build and coverage badges in the README specific to the `master` branch.
 
 ## v1.0.0-beta.1 (July 11, 2016)
 
-This is the first release of the GPS to GPX library. This release is simply to test that the entire workflow is working.
+This is the initial public release (a beta version to ensure that entire workflow and pipeline is functioning correctly).

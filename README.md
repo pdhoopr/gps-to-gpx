@@ -7,8 +7,8 @@ This is a minimal JavaScript library that formats GPS waypoint data from an acti
 [![Build Status](https://img.shields.io/travis/pdhoopr/gps-to-gpx/master.svg?style=flat-square)](https://travis-ci.org/pdhoopr/gps-to-gpx)
 [![Code Coverage](https://img.shields.io/codecov/c/github/pdhoopr/gps-to-gpx/master.svg?style=flat-square)](https://codecov.io/gh/pdhoopr/gps-to-gpx)
 [![npm Version](https://img.shields.io/npm/v/gps-to-gpx.svg?style=flat-square)](https://www.npmjs.com/package/gps-to-gpx)
-[![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](https://github.com/pdhoopr/gps-to-gpx/blob/master/LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/pdhoopr/gps-to-gpx/blob/master/CONTRIBUTING.md)
+[![License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](CONTRIBUTING.md)
 
 ## The Hook
 
@@ -31,7 +31,7 @@ You might have JSON data that looks like this:
 }
 ```
 
-Let's assume the JSON data above has been saved to a `data` variable and you're using ES2015 (if you're using another environment, you can find the appropriate steps in the [installation instructions](#user-content-installation)). Now you can `import` the top-level `createGpx` function and call it like so :
+Let's assume the JSON data above has been saved to a `data` variable and you're using ES2015 (if you're using another environment, you can find the appropriate steps in the [installation instructions](#installation)). Now you can `import` the top-level `createGpx` function and call it like so :
 
 ```javascript
 import { createGpx } from 'gps-to-gpx';
@@ -122,7 +122,7 @@ createGpx(waypoints[, options])
 
 If you're not sure where to start with the GPS to GPX library, maybe the example(s) below can help:
 
-- [Nike+](https://github.com/pdhoopr/gps-to-gpx/tree/master/examples/nikeplus#readme) ([source](https://github.com/pdhoopr/gps-to-gpx/tree/master/examples/nikeplus))
+- [Nike+](examples/nikeplus#readme) ([source](examples/nikeplus))
 
 ## Roadmap
 
@@ -130,12 +130,12 @@ This project was created primarily as a hobby project to help familiarize myself
 
 ## Contributing
 
-Contributions from the community are welcome and encouraged! If you have any ideas, feature requests, bugs, etc., please use the [contributing guidelines](https://github.com/pdhoopr/gps-to-gpx/blob/master/CONTRIBUTING.md) to determine your next move. Also note that this project follows a [code of conduct](https://github.com/pdhoopr/gps-to-gpx/blob/master/CODE_OF_CONDUCT.md). Thank you!
+Contributions from the community are welcome and encouraged! If you have any ideas, feature requests, bugs, etc., please use the [contributing guidelines](CONTRIBUTING.md) to determine your next move. Also note that this project follows a [code of conduct](CODE_OF_CONDUCT.md). Thank you!
 
 ## Releases
 
-This project uses [Semantic Versioning](http://semver.org/). All releases are documented on the GitHub [releases page](https://github.com/pdhoopr/gps-to-gpx/releases) and in the [changelog](https://github.com/pdhoopr/gps-to-gpx/blob/master/CHANGELOG.md).
+This project uses [Semantic Versioning](http://semver.org/). All releases are documented on the GitHub [releases page](https://github.com/pdhoopr/gps-to-gpx/releases) and in the [changelog](CHANGELOG.md).
 
 ## License
 
-GPS to GPX is released under the [MIT License](https://github.com/pdhoopr/gps-to-gpx/blob/master/LICENSE).
+GPS to GPX is released under the [MIT License](LICENSE).
