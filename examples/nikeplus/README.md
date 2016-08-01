@@ -1,6 +1,6 @@
 # Nike+ Example
 
-This is a sample Node.js project that pulls all valid activities from the Nike+ API and saves them as GPX files using the [GPS to GPX library](https://www.npmjs.com/package/gps-to-gpx). Detailed documentation can be found as comments throughout the example code.
+This is a sample Node.js project that pulls all valid activities from the Nike+ API and saves them as GPX files using the [GPS to GPX library](https://www.npmjs.com/package/gps-to-gpx). Detailed documentation can be found as comments throughout [the example code](.).
 
 To download this example, first clone the repository:
 

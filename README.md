@@ -122,7 +122,7 @@ createGpx(waypoints[, options])
 
 If you're not sure where to start with the GPS to GPX library, maybe the example(s) below can help:
 
-- [Nike+](examples/nikeplus#readme) ([source](examples/nikeplus))
+- [Nike+](examples/nikeplus#readme)
 
 ## Roadmap
 
