@@ -2,4 +2,6 @@
 // going to `https://developer.nike.com/documentation/api-docs/test-console.html`, logging in, and
 // then grabbing the `access_token` param sent in test console requests. There's probably a better
 // way to do this...
-export const ACCESS_TOKEN = '{NIKE+_API_ACCESS_TOKEN_GOES_HERE}';
+const ACCESS_TOKEN = '{NIKE+_API_ACCESS_TOKEN_GOES_HERE}';
+
+export default ACCESS_TOKEN;

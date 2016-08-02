@@ -5,7 +5,7 @@ import {
   estimateTimeForWaypoints,
   filterActivityData,
 } from './dataManipulation';
-import { writeActivityDataToFiles } from './fileCreation';
+import writeActivityDataToFiles from './fileCreation';
 
 // The example executes as follows: starts by building an array of data where each item represents
 // data for each activity from the Nike+ API, then filters activities down to only valid

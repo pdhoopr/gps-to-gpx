@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 
 // Library imports
-import { createGpx } from '../src';
+import createGpx from '../src';
 import { waypoints, waypointsWithCustomKeys, waypointsWithAllFields } from './fixtures';
 
 describe('createGpx', () => {

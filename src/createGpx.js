@@ -102,7 +102,10 @@ export default function createGpx(waypoints, options = {}) {
   // Loop through the waypoints and ensure that each one has a key for both latitude and longitude
   // (as defined by the `latKey` and `lonKey` settings).
   waypoints.forEach((point) => {
-    if (!point.hasOwnProperty(settings.latKey) || !point.hasOwnProperty(settings.lonKey)) {
+    if (
+      !{}.hasOwnProperty.call(point, settings.latKey) ||
+      !{}.hasOwnProperty.call(point, settings.lonKey)
+    ) {
       throw new Error(
         'createGpx expected to find properties for latitude and longitude on all GPS ' +
         'points, but at least one point did not have both. Did you pass an array of waypoints ' +
@@ -120,10 +123,10 @@ export default function createGpx(waypoints, options = {}) {
       .ele('trkpt')
       .att('lat', point[settings.latKey])
       .att('lon', point[settings.lonKey]);
-    if (point.hasOwnProperty(settings.eleKey)) {
+    if ({}.hasOwnProperty.call(point, settings.eleKey)) {
       trkpt.ele('ele', point[settings.eleKey]);
     }
-    if (point.hasOwnProperty(settings.timeKey)) {
+    if ({}.hasOwnProperty.call(point, settings.timeKey)) {
       trkpt.ele('time', point[settings.timeKey]);
     }
   });

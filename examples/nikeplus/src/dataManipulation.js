@@ -2,7 +2,7 @@
 import moment from 'moment-timezone';
 
 // Library imports
-import { ACCESS_TOKEN } from './constants';
+import ACCESS_TOKEN from './accessToken';
 import { getActivities, getActivityGps } from './nikeplusApi';
 
 /**
@@ -11,8 +11,8 @@ import { getActivities, getActivityGps } from './nikeplusApi';
  * the API responses to navigate through pages and make calls for additional data until it reaches
  * the end.
  *
- * NOTE: You'll need an access token in order to use the API. Check out the `constants.js` file for
- * more info.
+ * NOTE: You'll need an access token in order to use the API. Check out the `accessToken.js` file
+ * for more info.
  *
  * @returns {array} An array containing objects of activity data for each Nike+ activity returned
  * by the API.

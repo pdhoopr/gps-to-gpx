@@ -31,10 +31,10 @@ You might have JSON data that looks like this:
 }
 ```
 
-Let's assume the JSON data above has been saved to a `data` variable and you're using ES2015 (if you're using another environment, you can find the appropriate steps in the [installation instructions](#installation)). Now you can `import` the top-level `createGpx` function and call it like so :
+Let's assume the JSON data above has been saved to a `data` variable and you're using ES2015 (if you're using another environment, you can find the appropriate steps in the [installation instructions](#installation)). Now you can `import` the default top-level `createGpx` function and call it like so :
 
 ```javascript
-import { createGpx } from 'gps-to-gpx';
+import createGpx from 'gps-to-gpx';
 
 const gpx = createGpx(data.waypoints, {
   activityName: data.activityType,
@@ -80,13 +80,13 @@ npm install --save gps-to-gpx
 In a CommonJS environment, you can import the library like this:
 
 ```javascript
-const createGpx = require('gps-to-gpx').createGpx;
+const createGpx = require('gps-to-gpx').default;
 ```
 
 In an ES2015 environment, you can import the library like this:
 
 ```javascript
-import { createGpx } from 'gps-to-gpx';
+import createGpx from 'gps-to-gpx';
 ```
 
 If you're not using modules via something like [webpack](http://webpack.github.io/), [Browserify](http://browserify.org/), or [Node.js](https://nodejs.org/en/), then the UMD build might interest you. The `gps-to-gpx` library comes with a `dist` folder containing development and (minified) production UMD builds that can be used without a module bundler. In a UMD environment, GPS to GPX will be available as the `window.GpsToGpx` variable.

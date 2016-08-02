@@ -3,7 +3,7 @@ import fs from 'fs';
 
 // Vendor imports
 import colors from 'colors/safe';
-import { createGpx } from 'gps-to-gpx';
+import createGpx from 'gps-to-gpx';
 
 function writeActivityDataToGpxFile(activity, fileName, folder) {
   const gpxFilePath = `./data/${folder}/${fileName}.gpx`;
@@ -43,7 +43,7 @@ function writeActivityDataToGpxFile(activity, fileName, folder) {
  *
  * @returns {Void}
  */
-export function writeActivityDataToFiles(data, folder) {
+export default function writeActivityDataToFiles(data, folder) {
   for (const activity of data) {
     // Nike+ returns date/time info in the form 'YYYY-DD-MMTHH:mm:ssZ', so using regex it's
     // fairly easily to consistently grab the date (YYYY-DD-MM) and time (HH:mm:ss) of an activity,

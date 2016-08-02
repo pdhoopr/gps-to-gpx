@@ -8,7 +8,7 @@ To download this example, first clone the repository:
 git clone https://github.com/pdhoopr/gps-to-gpx.git
 ```
 
-To run this example successfully, you'll first need to grab a Nike+ API access token. See the comments in [this `constants.js` file](src/constants.js) for more info. Once you've obtained and inserted your access token into the example code, run the following commands in sequence:
+To run this example successfully, you'll first need to grab a Nike+ API access token. See the comments in [this `accessToken.js` file](src/accessToken.js) for more info. Once you've obtained and inserted your access token into the example code, run the following commands in sequence:
 
 ```
 cd gps-to-gpx/examples/nikeplus
