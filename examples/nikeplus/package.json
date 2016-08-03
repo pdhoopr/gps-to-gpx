@@ -24,7 +24,7 @@
     "babel-preset-es2015": "6.9.0",
     "babel-preset-stage-2": "6.11.0",
     "colors": "1.1.2",
-    "gps-to-gpx": "1.0.1",
+    "gps-to-gpx": "1.0.2",
     "moment-timezone": "0.5.5"
   },
   "devDependencies": {

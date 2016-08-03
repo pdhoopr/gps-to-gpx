@@ -2,6 +2,10 @@
 
 This project uses [Semantic Versioning](http://semver.org/). All releases are documented both on the GitHub [releases page](https://github.com/pdhoopr/gps-to-gpx/releases) and in this file.
 
+## v1.0.2 (August 3, 2016)
+
+This release is just a patch to make sure the npm and GitHub `README` files are in sync.
+
 ## v1.0.1 (August 2, 2016)
 
 This release does some cleanup and restructuring of various pieces of the library.
@@ -19,7 +23,7 @@ This release does some cleanup and restructuring of various pieces of the librar
 
 This release adds the last bit of polish, making it ready for prime time (its first major version).
 
-- Make build and coverage badges in the README specific to the `master` branch.
+- Make build and coverage badges in the `README` specific to the `master` branch.
 
 ## v1.0.0-beta.1 (July 11, 2016)
 
