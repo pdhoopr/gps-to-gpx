@@ -134,7 +134,7 @@ Contributions from the community are welcome and encouraged! If you have any ide
 
 ## Releases
 
-This project uses [Semantic Versioning](http://semver.org/). All releases are documented on the GitHub [releases page](https://github.com/pdhoopr/gps-to-gpx/releases) and in the [changelog](CHANGELOG.md).
+This project uses [Semantic Versioning](http://semver.org/). All releases are documented on the GitHub [releases page](https://github.com/pdhoopr/gps-to-gpx/releases) and in the [change log](CHANGELOG.md).
 
 ## License
 
