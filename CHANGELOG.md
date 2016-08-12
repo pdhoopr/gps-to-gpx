@@ -2,6 +2,13 @@
 
 This project uses [Semantic Versioning](http://semver.org/). All releases are documented both on the GitHub [releases page](https://github.com/pdhoopr/gps-to-gpx/releases) and in this file.
 
+## v1.0.3 (August 12, 2016)
+
+This release just fixes some content in the documentation.
+
+- Add spacing to the phrase "change log" in "Releases" section of the `README` file.
+- Remove info about linting and `.editorconfig` file in `CONTRIBUTING` file.
+
 ## v1.0.2 (August 3, 2016)
 
 This release is just a patch to make sure the npm and GitHub `README` files are in sync.
