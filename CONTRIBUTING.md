@@ -22,7 +22,7 @@ A workflow for pull requests will usually look something like this (for more inf
 - When you think you're done, verify there are no linting errors and all tests pass. Feel free to take a look at the code coverage, too.
 - Submit a pull request and reference any issues it addresses.
 
-Please try and keep your pull request's scope focused and commit history streamlined. You might also want to take some time to familiarize yourself with the rest of the project so you know the existing styles and conventions to adhere to (linting will help with this, and there is also an `.editorconfig` file).
+Please try and keep your pull request's scope focused and commit history streamlined. You might also want to take some time to familiarize yourself with the rest of the project so you know the existing styles and conventions to adhere to.
 
 ## Development
 
