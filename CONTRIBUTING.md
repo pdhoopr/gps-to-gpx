@@ -19,7 +19,7 @@ A workflow for pull requests will usually look something like this (for more inf
 - Fork the repository.
 - Create a new feature branch based off of the master branch.
 - Get to work!
-- When you think you're done, verify there are no linting errors and all tests pass. Feel free to take a look at the code coverage, too.
+- When you think you're done, verify there are no errors (linting, testing, or building). Feel free to take a look at the code coverage, too.
 - Submit a pull request and reference any issues it addresses.
 
 Please try and keep your pull request's scope focused and commit history streamlined. You might also want to take some time to familiarize yourself with the rest of the project so you know the existing styles and conventions to adhere to.
