@@ -2,6 +2,13 @@
 
 This project uses [Semantic Versioning](http://semver.org/). All releases are documented both on the GitHub [releases page](https://github.com/pdhoopr/gps-to-gpx/releases) and in this file.
 
+## v1.0.4 (August 13, 2016)
+
+This release reworks some pieces of the documentation.
+
+- Update syntax for user-specific pieces of commands from `{{ variable }}` to `VARIABLE`.
+- Update error types in "Pull Requests" section of `CONTRIBUTING`.
+
 ## v1.0.3 (August 12, 2016)
 
 This release just fixes some content in the documentation.

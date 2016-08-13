@@ -1,6 +1,6 @@
 {
   "name": "gps-to-gpx",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple tool that uses GPS waypoint data to generate GPX.",
   "keywords": [
     "gps",
