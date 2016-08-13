@@ -28,10 +28,10 @@ Please try and keep your pull request's scope focused and commit history streaml
 
 All development will likely start by forking your own copy of the repository and then cloning it.
 
-To clone the repo, use:
+To clone your fork of the repo, use:
 
 ```
-git clone https://github.com/{{ your_github_username }}/gps-to-gpx.git
+git clone https://github.com/YOUR_GITHUB_USERNAME/gps-to-gpx.git
 ```
 
 You'll then want to navigate into the cloned project directory and run `npm install` (you'll need [Node.js](https://nodejs.org/en/) & [npm](https://www.npmjs.com/)) to install the project's dependencies.
@@ -123,7 +123,7 @@ npm run clean:coverage
 
 ## Examples
 
-In-depth, realistic use cases for the GPS to GPX library can be found in the `examples` folder. You're more than welcome to add your own example, just be sure to look over the existing ones and try to follow similar principles. Each example gets its own folder at `examples/{{ example_name }}`. Verify any code you write doesn't throw lint errors using `npm run lint`.
+In-depth, realistic use cases for the GPS to GPX library can be found in the `examples` folder. You're more than welcome to add your own example, just be sure to look over the existing ones and try to follow similar principles. Each example gets its own folder at `examples/EXAMPLE_NAME`. Verify any code you write doesn't throw lint errors using `npm run lint`.
 
 ## Thanks
 
