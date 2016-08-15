@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: ["error", { "devDependencies": true }] */
+
 // Node.js imports
 const path = require('path');
 
@@ -16,8 +18,8 @@ const config = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['babel-loader'],
         include,
+        loader: 'babel',
       },
     ],
   },
