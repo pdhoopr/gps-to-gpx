@@ -2,9 +2,6 @@
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
-    "quotes": [2, "single", {
-      "avoidEscape": true,
-      "allowTemplateLiterals": true
-     }]
+    "quotes": [2, "single", { "allowTemplateLiterals": true, "avoidEscape": true }]
   }
 }

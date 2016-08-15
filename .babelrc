@@ -1,12 +1,13 @@
 {
-  "presets": ["es2015-loose-native-modules", "stage-2"],
-  "plugins": "transform-runtime",
+  "presets": [
+    ["es2015", { "modules": false }],
+    "stage-2"
+  ],
+  "plugins": ["transform-runtime"],
   "env": {
     "commonjs": {
-      "plugins": [
-        ["transform-es2015-modules-commonjs", {
-          "loose": true
-        }]
+      "presets": [
+        ["es2015", { "modules": "commonjs" }]
       ]
     }
   }
