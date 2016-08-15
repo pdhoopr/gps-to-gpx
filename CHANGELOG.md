@@ -2,6 +2,16 @@
 
 This project uses [Semantic Versioning](http://semver.org/). All releases are documented both on the GitHub [releases page](https://github.com/pdhoopr/gps-to-gpx/releases) and in this file.
 
+## v1.0.5 (August 15, 2016)
+
+This release mainly does some cleanup of dependencies and configs.
+
+- Update some rule formatting in `.eslintrc`.
+- Update `.babelrc` to use `modules` option for `es2015` preset depending on the environment.
+- Remove Babel presets and plugins for using loose/native modules.
+- Bump all dependencies.
+- Update loader syntax in `webpack.config.js` to use webpack 2 format.
+
 ## v1.0.4 (August 13, 2016)
 
 This release reworks some pieces of the documentation.
