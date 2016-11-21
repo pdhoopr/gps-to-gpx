@@ -62,6 +62,7 @@ export default function createGpx(waypoints, options = {}) {
     timeKey: 'time',
   };
   const settings = Object.assign({}, defaultSettings, options);
+  const { activityName, eleKey, latKey, lonKey, startTime, timeKey } = settings;
 
   // Initialize the `<gpx>` element with some default attributes.
   const gpx = xmlBuilder
@@ -85,15 +86,16 @@ export default function createGpx(waypoints, options = {}) {
   // nested `<time>` element if the `startTime` setting exists.
   const metadata = gpx.ele('metadata');
   metadata.ele('name', 'Activity');
-  if (settings.startTime) {
-    metadata.ele('time', settings.startTime);
+  if (startTime) {
+    const formattedStartTime = (startTime instanceof Date) ? startTime.toISOString() : startTime;
+    metadata.ele('time', formattedStartTime);
   }
 
   // Add a `<trk>` element to `<gpx>`. `<trk>` gets a nested `<name>` element if the `activityName`
   // setting exists.
   const trk = gpx.ele('trk');
-  if (settings.activityName) {
-    trk.ele('name', settings.activityName);
+  if (activityName) {
+    trk.ele('name', activityName);
   }
 
   // Add a `<trkseg>` element to `<trk>`.
@@ -103,8 +105,8 @@ export default function createGpx(waypoints, options = {}) {
   // (as defined by the `latKey` and `lonKey` settings).
   waypoints.forEach((point) => {
     if (
-      !{}.hasOwnProperty.call(point, settings.latKey) ||
-      !{}.hasOwnProperty.call(point, settings.lonKey)
+      !{}.hasOwnProperty.call(point, latKey) ||
+      !{}.hasOwnProperty.call(point, lonKey)
     ) {
       throw new Error(
         'createGpx expected to find properties for latitude and longitude on all GPS ' +
@@ -121,13 +123,13 @@ export default function createGpx(waypoints, options = {}) {
     // defined by the `eleKey` and `timeKey` settings, respectively).
     const trkpt = trkseg
       .ele('trkpt')
-      .att('lat', point[settings.latKey])
-      .att('lon', point[settings.lonKey]);
-    if ({}.hasOwnProperty.call(point, settings.eleKey)) {
-      trkpt.ele('ele', point[settings.eleKey]);
+      .att('lat', point[latKey])
+      .att('lon', point[lonKey]);
+    if ({}.hasOwnProperty.call(point, eleKey)) {
+      trkpt.ele('ele', point[eleKey]);
     }
-    if ({}.hasOwnProperty.call(point, settings.timeKey)) {
-      trkpt.ele('time', point[settings.timeKey]);
+    if ({}.hasOwnProperty.call(point, timeKey)) {
+      trkpt.ele('time', point[timeKey]);
     }
   });
 

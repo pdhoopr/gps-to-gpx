@@ -101,11 +101,27 @@ describe('createGpx', () => {
     );
   });
 
-  it('should add a `<metadata>` element with `<time>` as `startTime` if not `null`', () => {
+  it('should add a `<metadata>` element with `<time>` if `startTime` is a string', () => {
     expect(createGpx(waypoints, {
       startTime: '2015-07-20T23:30:49Z',
     })).to.match(
       /<metadata>[\s\S]*<time>2015-07-20T23:30:49Z<\/time>[\s\S]*<\/metadata>/
+    );
+  });
+
+  it('should add a `<metadata>` element with `<time>` if `startTime` is a `Date` object', () => {
+    expect(createGpx(waypoints, {
+      startTime: new Date('2015-07-20T23:30:49Z'),
+    })).to.match(
+      /<metadata>[\s\S]*<time>2015-07-20T23:30:49.000Z<\/time>[\s\S]*<\/metadata>/
+    );
+  });
+
+  it('should add a `<metadata>` element with `<time>` if `startTime` is some other type', () => {
+    expect(createGpx(waypoints, {
+      startTime: 12345,
+    })).to.match(
+      /<metadata>[\s\S]*<time>12345<\/time>[\s\S]*<\/metadata>/
     );
   });
 
