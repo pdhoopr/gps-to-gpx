@@ -33,7 +33,7 @@ describe('utils', () => {
     });
 
     it('should return the `typeof` result for all other values, like a symbol', () => {
-      expect(getType(Symbol())).to.equal('symbol');
+      expect(getType(Symbol('description'))).to.equal('symbol');
     });
   });
 });

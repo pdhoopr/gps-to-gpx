@@ -2,6 +2,13 @@
   "extends": "airbnb",
   "parser": "babel-eslint",
   "rules": {
-    "quotes": [2, "single", { "allowTemplateLiterals": true, "avoidEscape": true }]
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "ignore"
+    }],
+    "quotes": ["error", "single", { "allowTemplateLiterals": true, "avoidEscape": true }]
   }
 }

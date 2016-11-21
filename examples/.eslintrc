@@ -1,9 +1,0 @@
-{
-  "plugins": ["babel"],
-  "rules": {
-    "generator-star-spacing": 0,
-    "babel/generator-star-spacing": 1,
-    "no-console": 0,
-    "import/no-unresolved": 0
-  }
-}

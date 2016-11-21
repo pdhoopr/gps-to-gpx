@@ -30,8 +30,6 @@ function assertArgValidity(waypoints, options) {
       `parameter, so unless you need to override some default settings, you can leave it blank.`
     );
   }
-
-  return;
 }
 
 /**

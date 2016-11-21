@@ -1,5 +1,5 @@
 // Vendor imports
-import axios from 'axios';
+import axios from 'axios'; // eslint-disable-line import/no-unresolved, import/extensions
 
 // Library imports
 import ACCESS_TOKEN from './accessToken';

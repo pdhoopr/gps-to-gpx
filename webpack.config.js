@@ -15,11 +15,11 @@ const config = {
     libraryTarget: 'umd',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         include,
-        loader: 'babel',
+        use: ['babel-loader'],
       },
     ],
   },

@@ -1,5 +1,5 @@
 // Vendor imports
-import moment from 'moment-timezone';
+import moment from 'moment-timezone'; // eslint-disable-line import/no-unresolved, import/extensions
 
 // Library imports
 import ACCESS_TOKEN from './accessToken';
@@ -31,7 +31,7 @@ export async function buildActivityData() {
     data = activities.data;
     nextPage = activities.nextPage;
   } catch (error) {
-    console.error(error);
+    console.error(error); // eslint-disable-line no-console
   }
 
   // If the API says there's another page of data, keep looping until it returns `null`.
@@ -45,7 +45,7 @@ export async function buildActivityData() {
       data.push(...nextActivities.data);
       nextPage = nextActivities.nextPage;
     } catch (error) {
-      console.error(error);
+      console.error(error); // eslint-disable-line no-console
     }
   }
 
@@ -91,7 +91,7 @@ export async function addWaypoints(data) {
 
       return Object.assign({}, activity, waypoints);
     } catch (error) {
-      console.error(error);
+      console.error(error); // eslint-disable-line no-console
 
       return activity;
     }
@@ -122,7 +122,7 @@ function calculateTimeStep(duration, numWaypoints) {
 export function estimateTimeForWaypoints(data) {
   const dataWithEstimatedTime = [];
 
-  for (const activity of data) {
+  data.forEach((activity) => {
     if (activity.waypoints && activity.waypoints.length > 1) {
       const waypointsWithEstimatedTime = [];
 
@@ -134,12 +134,12 @@ export function estimateTimeForWaypoints(data) {
       // Loop through all the waypoints for an activity and create a new waypoint with all the
       // properties of the old waypoint plus a new `time` property which is the timestamp. Before
       // the next loop iteration, increase `timestamp` by `timeStep` seconds.
-      for (const waypoint of activity.waypoints) {
+      activity.waypoints.forEach((waypoint) => {
         waypointsWithEstimatedTime.push(Object.assign({}, waypoint, {
           time: `${timestamp.format('YYYY-MM-DDTHH:mm:ss.SSS')}Z`,
         }));
         timestamp.add(timeStep, 'seconds');
-      }
+      });
 
       // Create a new activity with all the properties of the old activity plus an updated
       // `waypoints` property which contains all the waypoints with estimated timestamps.
@@ -150,7 +150,7 @@ export function estimateTimeForWaypoints(data) {
       // If an activity had no waypoints, just add the original activity data to the new data.
       dataWithEstimatedTime.push(activity);
     }
-  }
+  });
 
   return dataWithEstimatedTime;
 }

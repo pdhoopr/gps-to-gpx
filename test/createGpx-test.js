@@ -195,14 +195,14 @@ describe('createGpx', () => {
     const gpx = createGpx(waypoints);
     let numMatchedWaypoints = 0;
 
-    waypoints.forEach(point => {
+    waypoints.forEach((point) => {
       const regex = new RegExp(
         `<trkpt lat="${point.latitude}" lon="${point.longitude}">[\\s\\S]*</trkpt>`
       );
       const matches = gpx.match(regex);
 
       if (matches && matches.length) {
-        numMatchedWaypoints++;
+        numMatchedWaypoints += 1;
       }
     });
 
@@ -225,7 +225,7 @@ describe('createGpx', () => {
     const gpx = createGpx(waypointsWithAllFields);
     let numMatchedWaypoints = 0;
 
-    waypointsWithAllFields.forEach(point => {
+    waypointsWithAllFields.forEach((point) => {
       const regex = new RegExp(
         `<trkpt lat="${point.latitude}" lon="${point.longitude}">\\s*` +
         `<ele>${point.elevation}</ele>\\s*` +
@@ -235,7 +235,7 @@ describe('createGpx', () => {
       const matches = gpx.match(regex);
 
       if (matches && matches.length) {
-        numMatchedWaypoints++;
+        numMatchedWaypoints += 1;
       }
     });
 
