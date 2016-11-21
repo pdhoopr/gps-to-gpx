@@ -2,6 +2,15 @@
 
 This project uses [Semantic Versioning](http://semver.org/). All releases are documented both on the GitHub [releases page](https://github.com/pdhoopr/gps-to-gpx/releases) and in this file.
 
+## v1.1.0 (November 20, 2016)
+
+This release enhances the time-handling aspects of the library.
+
+- Allow users to pass waypoint times as Date objects and get ISO strings in the GPX output.
+- Allow users to pass `startTime` as a Date object and get ISO string in the GPX output.
+- Bump all dependencies and update pieces of code to comply.
+- Run Travis CI tests against Node v7.
+
 ## v1.0.5 (August 15, 2016)
 
 This release mainly does some cleanup of dependencies and configs.
