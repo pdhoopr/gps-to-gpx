@@ -127,7 +127,9 @@ export default function createGpx(waypoints, options = {}) {
       trkpt.ele('ele', point[eleKey]);
     }
     if ({}.hasOwnProperty.call(point, timeKey)) {
-      trkpt.ele('time', point[timeKey]);
+      const pointTime = point[timeKey];
+      const formattedPointTime = (pointTime instanceof Date) ? pointTime.toISOString() : pointTime;
+      trkpt.ele('time', formattedPointTime);
     }
   });
 

@@ -45,6 +45,6 @@ export const waypointsWithAllFields = [
     elevation: 0,
     latitude: 26.852758,
     longitude: -80.08039,
-    time: '2016-06-07T23:41:14.000Z',
+    time: new Date('2016-06-07T23:41:14.000Z'),
   },
 ];

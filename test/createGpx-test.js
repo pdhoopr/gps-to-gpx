@@ -101,14 +101,6 @@ describe('createGpx', () => {
     );
   });
 
-  it('should add a `<metadata>` element with `<time>` if `startTime` is a string', () => {
-    expect(createGpx(waypoints, {
-      startTime: '2015-07-20T23:30:49Z',
-    })).to.match(
-      /<metadata>[\s\S]*<time>2015-07-20T23:30:49Z<\/time>[\s\S]*<\/metadata>/
-    );
-  });
-
   it('should add a `<metadata>` element with `<time>` if `startTime` is a `Date` object', () => {
     expect(createGpx(waypoints, {
       startTime: new Date('2015-07-20T23:30:49Z'),
@@ -117,11 +109,11 @@ describe('createGpx', () => {
     );
   });
 
-  it('should add a `<metadata>` element with `<time>` if `startTime` is some other type', () => {
+  it('should add a `<metadata>` element with `<time>` if `startTime` is a string', () => {
     expect(createGpx(waypoints, {
-      startTime: 12345,
+      startTime: '2015-07-20T23:30:49Z',
     })).to.match(
-      /<metadata>[\s\S]*<time>12345<\/time>[\s\S]*<\/metadata>/
+      /<metadata>[\s\S]*<time>2015-07-20T23:30:49Z<\/time>[\s\S]*<\/metadata>/
     );
   });
 
@@ -226,10 +218,11 @@ describe('createGpx', () => {
     let numMatchedWaypoints = 0;
 
     waypointsWithAllFields.forEach((point) => {
+      const pointTime = point.time;
       const regex = new RegExp(
         `<trkpt lat="${point.latitude}" lon="${point.longitude}">\\s*` +
         `<ele>${point.elevation}</ele>\\s*` +
-        `<time>${point.time}</time>\\s*` +
+        `<time>${pointTime instanceof Date ? pointTime.toISOString() : pointTime}</time>\\s*` +
         `</trkpt>`
       );
       const matches = gpx.match(regex);
