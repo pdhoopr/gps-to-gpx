@@ -7,7 +7,7 @@
     "url": "https://github.com/pdhoopr/gps-to-gpx/issues"
   },
   "license": "MIT",
-  "author": "Patrick Hooper <patrick.d.hooper@gmail.com> (http://patrick.hoopr.io)",
+  "author": "Patrick Hooper <patrick.d.hooper@gmail.com> (https://patrickhooper.me)",
   "main": "src/index.js",
   "repository": {
     "type": "git",
