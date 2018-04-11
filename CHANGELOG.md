@@ -2,6 +2,10 @@
 
 This project uses [Semantic Versioning](http://semver.org/). All releases are documented both on the GitHub [releases page](https://github.com/pdhoopr/gps-to-gpx/releases) and in this file.
 
+## v1.2.0 (April 11, 2018)
+
+This release adds the ability for a GPS point to provide additional extensions.
+
 ## v1.1.0 (November 20, 2016)
 
 This release enhances the time-handling aspects of the library.
