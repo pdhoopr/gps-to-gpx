@@ -213,16 +213,30 @@ describe('createGpx', () => {
     );
   });
 
+  it('should add `<trkpt>` elements without `<extensions>` element if `extKey` is not found', () => {
+    expect(createGpx(waypoints)).to.not.match(
+      /<trkpt>[\s\S]*<extensions>.*<\/extensions>[\s\S]*<\/trkpt>/
+    );
+  });
+
   it('should add as many `<trkpt>` elements (with all fields) as there are waypoints', () => {
     const gpx = createGpx(waypointsWithAllFields);
     let numMatchedWaypoints = 0;
 
     waypointsWithAllFields.forEach((point) => {
-      const pointTime = point.time;
+      const { latitude, longitude, elevation, time, extensions } = point;
+      const { atemp, hr, cad } = extensions;
       const regex = new RegExp(
-        `<trkpt lat="${point.latitude}" lon="${point.longitude}">\\s*` +
-        `<ele>${point.elevation}</ele>\\s*` +
-        `<time>${pointTime instanceof Date ? pointTime.toISOString() : pointTime}</time>\\s*` +
+        `<trkpt lat="${latitude}" lon="${longitude}">\\s*` +
+        `<ele>${elevation}</ele>\\s*` +
+        `<time>${time instanceof Date ? time.toISOString() : time}</time>\\s*` +
+        `<extensions>\\s*` +
+        `<gpxtpx:TrackPointExtension>\\s*` +
+        `<gpxtpx:atemp>${atemp}</gpxtpx:atemp>\\s*` +
+        `<gpxtpx:hr>${hr}</gpxtpx:hr>\\s*` +
+        `<gpxtpx:cad>${cad}</gpxtpx:cad>\\s*` +
+        `</gpxtpx:TrackPointExtension>\\s*` +
+        `</extensions>\\s*` +
         `</trkpt>`
       );
       const matches = gpx.match(regex);

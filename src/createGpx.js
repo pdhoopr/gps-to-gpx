@@ -54,13 +54,14 @@ export default function createGpx(waypoints, options = {}) {
   const defaultSettings = {
     activityName: "Everyday I'm hustlin'",
     eleKey: 'elevation',
+    extKey: 'extensions',
     latKey: 'latitude',
     lonKey: 'longitude',
     startTime: null,
     timeKey: 'time',
   };
   const settings = Object.assign({}, defaultSettings, options);
-  const { activityName, eleKey, latKey, lonKey, startTime, timeKey } = settings;
+  const { activityName, eleKey, extKey, latKey, lonKey, startTime, timeKey } = settings;
 
   // Initialize the `<gpx>` element with some default attributes.
   const gpx = xmlBuilder
@@ -130,6 +131,12 @@ export default function createGpx(waypoints, options = {}) {
       const pointTime = point[timeKey];
       const formattedPointTime = (pointTime instanceof Date) ? pointTime.toISOString() : pointTime;
       trkpt.ele('time', formattedPointTime);
+    }
+    if ({}.hasOwnProperty.call(point, extKey)) {
+      const extensions = trkpt.ele('extensions').ele('gpxtpx:TrackPointExtension');
+      Object.keys(point[extKey]).forEach((ext) => {
+        extensions.ele(`gpxtpx:${ext}`, point[extKey][ext]);
+      });
     }
   });
 

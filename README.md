@@ -109,6 +109,7 @@ createGpx(waypoints[, options])
 
   - `activityName`: "Everyday I'm hustlin'"
   - `eleKey`: 'elevation'
+  - `extKey`: 'extensions'
   - `latKey`: 'latitude'
   - `lonKey`: 'longitude'
   - `startTime`: `null`
