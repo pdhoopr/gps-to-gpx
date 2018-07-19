@@ -53,16 +53,16 @@ export default function createGpx(waypoints, options = {}) {
   // Define default settings and merge in any user-defined options that override the defaults.
   const defaultSettings = {
     activityName: "Everyday I'm hustlin'",
+    creator: 'Patrick Hooper',
     eleKey: 'elevation',
     extKey: 'extensions',
     latKey: 'latitude',
     lonKey: 'longitude',
     startTime: null,
     timeKey: 'time',
-    creator: 'Patrick Hooper',
   };
   const settings = Object.assign({}, defaultSettings, options);
-  const { activityName, eleKey, extKey, latKey, lonKey, startTime, timeKey, creator } = settings;
+  const { activityName, creator, eleKey, extKey, latKey, lonKey, startTime, timeKey } = settings;
 
   // Initialize the `<gpx>` element with some default attributes.
   const gpx = xmlBuilder
