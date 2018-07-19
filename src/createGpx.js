@@ -59,16 +59,17 @@ export default function createGpx(waypoints, options = {}) {
     lonKey: 'longitude',
     startTime: null,
     timeKey: 'time',
+    creator: 'Patrick Hooper',
   };
   const settings = Object.assign({}, defaultSettings, options);
-  const { activityName, eleKey, extKey, latKey, lonKey, startTime, timeKey } = settings;
+  const { activityName, eleKey, extKey, latKey, lonKey, startTime, timeKey, creator } = settings;
 
   // Initialize the `<gpx>` element with some default attributes.
   const gpx = xmlBuilder
     .create('gpx', {
       encoding: 'UTF-8',
     })
-    .att('creator', 'Patrick Hooper')
+    .att('creator', creator)
     .att('version', '1.1')
     .att('xmlns', 'http://www.topografix.com/GPX/1/1')
     .att('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance')
