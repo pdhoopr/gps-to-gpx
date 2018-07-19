@@ -108,6 +108,7 @@ createGpx(waypoints[, options])
 2. `options` (*object*): Optional. An object literal of options that customize/override the default library settings. If any options are omitted, the settings will use the default values listed below:
 
   - `activityName`: "Everyday I'm hustlin'"
+  - `creator`: 'Patrick Hooper'
   - `eleKey`: 'elevation'
   - `extKey`: 'extensions'
   - `latKey`: 'latitude'
