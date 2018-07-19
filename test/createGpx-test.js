@@ -89,6 +89,16 @@ describe('createGpx', () => {
     expect(createGpx(waypoints)).to.match(/<gpx.*>[\s\S]*<\/gpx>/);
   });
 
+  it('should add a `<gpx>` element with the default `creator`', () => {
+    expect(createGpx(waypoints)).to.match(/<gpx.*creator="Patrick Hooper".*>[\s\S]*<\/gpx>/);
+  });
+
+  it('should add a `<gpx>` element with the provided `creator`', () => {
+    expect(createGpx(waypoints, {
+      creator: 'Joe Cool',
+    })).to.match(/<gpx.*creator="Joe Cool".*>[\s\S]*<\/gpx>/);
+  });
+
   it('should add a `<metadata>` element with name as "Activity"', () => {
     expect(createGpx(waypoints)).to.match(
       /<metadata>[\s\S]*<name>Activity<\/name>[\s\S]*<\/metadata>/
