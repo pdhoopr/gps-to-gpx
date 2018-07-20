@@ -1,85 +1,30 @@
 {
   "name": "gps-to-gpx",
-  "version": "1.4.0",
+  "version": "2.0.0-dev",
   "description": "A simple tool that uses GPS waypoint data to generate GPX.",
   "keywords": [
     "gps",
     "gpx",
-    "nike+",
-    "nikeplus",
-    "strava"
+    "waypoints"
   ],
   "homepage": "https://github.com/pdhoopr/gps-to-gpx#readme",
-  "bugs": {
-    "url": "https://github.com/pdhoopr/gps-to-gpx/issues"
-  },
+  "bugs": "https://github.com/pdhoopr/gps-to-gpx/issues",
   "license": "MIT",
   "author": "Patrick Hooper <patrick.d.hooper@gmail.com> (https://patrickhooper.me)",
   "files": [
-    "CHANGELOG.md",
-    "dist",
-    "es",
-    "lib",
-    "LICENSE",
-    "README.md",
-    "src"
+    "dist"
   ],
-  "main": "lib/index.js",
-  "jsnext:main": "es/index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pdhoopr/gps-to-gpx"
-  },
+  "main": "dist/gps-to-gpx.js",
+  "module": "dist/gps-to-gpx.esm.js",
+  "browser": "dist/gps-to-gpx.umd.js",
+  "repository": "github:pdhoopr/gps-to-gpx",
   "scripts": {
-    "build": "npm-run-all --parallel build:*",
-    "build:commonjs": "npm run clean:commonjs && cross-env BABEL_ENV=commonjs babel src --out-dir lib",
-    "build:es": "npm run clean:es && cross-env BABEL_ENV=es babel src --out-dir es",
-    "build:umd": "npm run clean:umd && cross-env BABEL_ENV=commonjs NODE_ENV=development webpack src/index.js dist/gps-to-gpx.js && cross-env BABEL_ENV=commonjs NODE_ENV=production webpack src/index.js dist/gps-to-gpx.min.js",
-    "clean": "npm-run-all --parallel clean:**",
-    "clean:commonjs": "rimraf lib",
-    "clean:coverage": "rimraf .nyc_output coverage",
-    "clean:es": "rimraf es",
-    "clean:umd": "rimraf dist",
-    "coverage": "npm run clean:coverage && nyc --reporter=lcov --reporter=text npm test",
-    "lint": "eslint examples src test",
-    "prepublish": "not-in-install && (npm run validate && npm run build) || in-install",
-    "test": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register --recursive",
-    "validate": "npm-run-all --parallel lint coverage",
-    "watch:src": "cross-env BABEL_ENV=commonjs babel src --watch --out-dir lib",
-    "watch:test": "npm test -- --watch"
-  },
-  "dependencies": {
-    "babel-runtime": "6.18.0",
-    "loose-envify": "1.3.0",
-    "xmlbuilder": "8.2.2"
+    "build": "microbundle"
   },
   "devDependencies": {
-    "babel-cli": "6.18.0",
-    "babel-core": "6.18.2",
-    "babel-eslint": "7.1.1",
-    "babel-loader": "6.2.8",
-    "babel-plugin-transform-runtime": "6.15.0",
-    "babel-preset-latest": "6.16.0",
-    "babel-register": "6.18.0",
-    "chai": "3.5.0",
-    "codecov": "1.0.1",
-    "cross-env": "3.1.3",
-    "eslint": "3.10.2",
-    "eslint-config-airbnb": "13.0.0",
-    "eslint-plugin-babel": "4.0.0",
-    "eslint-plugin-import": "2.2.0",
-    "eslint-plugin-jsx-a11y": "2.2.3",
-    "eslint-plugin-react": "6.7.1",
-    "in-publish": "2.0.0",
-    "mocha": "3.1.2",
-    "npm-run-all": "3.1.1",
-    "nyc": "9.0.1",
-    "rimraf": "2.5.4",
-    "webpack": "2.1.0-beta.27"
+    "microbundle": "^0.6.0"
   },
-  "browserify": {
-    "transform": [
-      "loose-envify"
-    ]
+  "engines": {
+    "node": ">=6"
   }
 }
