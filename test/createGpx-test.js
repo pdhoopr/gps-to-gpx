@@ -211,9 +211,33 @@ describe('createGpx', () => {
     expect(numMatchedWaypoints).to.equal(waypoints.length);
   });
 
+  it('should add `<trkpt>` elements without `<course>` element if `courseKey` is not found', () => {
+    expect(createGpx(waypoints)).to.not.match(
+      /<trkpt>[\s\S]*<course>.*<\/course>[\s\S]*<\/trkpt>/
+    );
+  });
+
   it('should add `<trkpt>` elements without `<ele>` element if `eleKey` is not found', () => {
     expect(createGpx(waypoints)).to.not.match(
       /<trkpt>[\s\S]*<ele>.*<\/ele>[\s\S]*<\/trkpt>/
+    );
+  });
+
+  it('should add `<trkpt>` elements without `<hdop>` element if `hdopKey` is not found', () => {
+    expect(createGpx(waypoints)).to.not.match(
+      /<trkpt>[\s\S]*<hdop>.*<\/hdop>[\s\S]*<\/trkpt>/
+    );
+  });
+
+  it('should add `<trkpt>` elements without `<ele>` element if `speedKey` is not found', () => {
+    expect(createGpx(waypoints)).to.not.match(
+      /<trkpt>[\s\S]*<speed>.*<\/speed>[\s\S]*<\/trkpt>/
+    );
+  });
+
+  it('should add `<trkpt>` elements without `<ele>` element if `vdopKey` is not found', () => {
+    expect(createGpx(waypoints)).to.not.match(
+      /<trkpt>[\s\S]*<vdop>.*<\/vdop>[\s\S]*<\/trkpt>/
     );
   });
 
@@ -234,11 +258,15 @@ describe('createGpx', () => {
     let numMatchedWaypoints = 0;
 
     waypointsWithAllFields.forEach((point) => {
-      const { latitude, longitude, elevation, time, extensions } = point;
+      const { course, latitude, longitude, elevation, hdop, speed, time, vdop, extensions } = point;
       const { atemp, hr, cad } = extensions;
       const regex = new RegExp(
         `<trkpt lat="${latitude}" lon="${longitude}">\\s*` +
+        `<course>${course}</course>\\s*` +
         `<ele>${elevation}</ele>\\s*` +
+        `<hdop>${hdop}</hdop>\\s*` +
+        `<speed>${speed}</speed>\\s*` +
+        `<vdop>${vdop}</vdop>\\s*` +
         `<time>${time instanceof Date ? time.toISOString() : time}</time>\\s*` +
         `<extensions>\\s*` +
         `<gpxtpx:TrackPointExtension>\\s*` +
