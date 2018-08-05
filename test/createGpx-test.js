@@ -229,13 +229,13 @@ describe('createGpx', () => {
     );
   });
 
-  it('should add `<trkpt>` elements without `<ele>` element if `speedKey` is not found', () => {
+  it('should add `<trkpt>` elements without `<speed>` element if `speedKey` is not found', () => {
     expect(createGpx(waypoints)).to.not.match(
       /<trkpt>[\s\S]*<speed>.*<\/speed>[\s\S]*<\/trkpt>/
     );
   });
 
-  it('should add `<trkpt>` elements without `<ele>` element if `vdopKey` is not found', () => {
+  it('should add `<trkpt>` elements without `<vdop>` element if `vdopKey` is not found', () => {
     expect(createGpx(waypoints)).to.not.match(
       /<trkpt>[\s\S]*<vdop>.*<\/vdop>[\s\S]*<\/trkpt>/
     );
