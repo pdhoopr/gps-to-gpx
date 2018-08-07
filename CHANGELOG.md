@@ -2,6 +2,10 @@
 
 This project uses [Semantic Versioning](http://semver.org/). All releases are documented both on the GitHub [releases page](https://github.com/pdhoopr/gps-to-gpx/releases) and in this file.
 
+## v1.4.0 (August 7, 2018)
+
+This release allows a user to add 4 new optional elements (`course`, `hdop`, `speed`, `vdop`) to a waypoint.
+
 ## v1.3.0 (July 19, 2018)
 
 This release adds the ability for a user to customize the value of the `creator` attribute added to the root `gpx` element.
