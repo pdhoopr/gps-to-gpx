@@ -54,15 +54,24 @@ export default function createGpx(waypoints, options = {}) {
   const defaultSettings = {
     activityName: "Everyday I'm hustlin'",
     creator: 'Patrick Hooper',
+    courseKey: 'course',
     eleKey: 'elevation',
     extKey: 'extensions',
+    hdopKey: 'hdop',
     latKey: 'latitude',
     lonKey: 'longitude',
+    speedKey: 'speed',
     startTime: null,
     timeKey: 'time',
+    vdopKey: 'vdop',
   };
   const settings = Object.assign({}, defaultSettings, options);
-  const { activityName, creator, eleKey, extKey, latKey, lonKey, startTime, timeKey } = settings;
+  const {
+    activityName, courseKey, creator,
+    eleKey, extKey, hdopKey, latKey,
+    lonKey, speedKey, startTime,
+    timeKey, vdopKey,
+  } = settings;
 
   // Initialize the `<gpx>` element with some default attributes.
   const gpx = xmlBuilder
@@ -119,14 +128,26 @@ export default function createGpx(waypoints, options = {}) {
     }
 
     // For every waypoint, add a `<trkpt>` element with a `lat` and `lon` attribute to `<trkseg>`.
-    // `<ele>` and `<time>` elements are added if the point has a corresponding key for each (as
-    // defined by the `eleKey` and `timeKey` settings, respectively).
+    // Other elements (elevation, time, course, speed, hdop, vdop) are added if
+    // the point has a corresponding key for each (as defined by the `eleKey` etc settings)
     const trkpt = trkseg
       .ele('trkpt')
       .att('lat', point[latKey])
       .att('lon', point[lonKey]);
+    if ({}.hasOwnProperty.call(point, courseKey)) {
+      trkpt.ele('course', point[courseKey]);
+    }
     if ({}.hasOwnProperty.call(point, eleKey)) {
       trkpt.ele('ele', point[eleKey]);
+    }
+    if ({}.hasOwnProperty.call(point, hdopKey)) {
+      trkpt.ele('hdop', point[hdopKey]);
+    }
+    if ({}.hasOwnProperty.call(point, speedKey)) {
+      trkpt.ele('speed', point[speedKey]);
+    }
+    if ({}.hasOwnProperty.call(point, vdopKey)) {
+      trkpt.ele('vdop', point[vdopKey]);
     }
     if ({}.hasOwnProperty.call(point, timeKey)) {
       const pointTime = point[timeKey];
