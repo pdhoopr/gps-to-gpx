@@ -19,12 +19,62 @@
   "browser": "dist/gps-to-gpx.umd.js",
   "repository": "github:pdhoopr/gps-to-gpx",
   "scripts": {
-    "build": "microbundle"
+    "build": "microbundle",
+    "check:format": "prettier --list-different '**/*.{js,json,md}'",
+    "check:js": "eslint '**/*.js'",
+    "format": "prettier --write '**/*.{js,json,md}'"
   },
   "devDependencies": {
-    "microbundle": "^0.6.0"
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.3.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.13.0",
+    "husky": "^1.0.0-rc.13",
+    "lint-staged": "^7.2.0",
+    "microbundle": "^0.6.0",
+    "prettier": "^1.14.0"
   },
   "engines": {
     "node": ">=6"
+  },
+  "eslintConfig": {
+    "root": true,
+    "plugins": [
+      "import"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:import/recommended",
+      "prettier"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "impliedStrict": true
+      }
+    },
+    "env": {
+      "es6": true
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.js": [
+      "eslint"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
   }
 }
