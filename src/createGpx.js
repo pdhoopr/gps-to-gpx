@@ -1,7 +1,5 @@
-// Vendor imports
-import xmlBuilder from 'xmlbuilder';
-
 // Library imports
+import { document, XMLSerializer } from './shim-document';
 import { doesExist, getType } from './utils';
 
 function assertArgValidity(waypoints, options) {
@@ -74,41 +72,46 @@ export default function createGpx(waypoints, options = {}) {
   } = settings;
 
   // Initialize the `<gpx>` element with some default attributes.
-  const gpx = xmlBuilder
-    .create('gpx', {
-      encoding: 'UTF-8',
-    })
-    .att('creator', creator)
-    .att('version', '1.1')
-    .att('xmlns', 'http://www.topografix.com/GPX/1/1')
-    .att('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance')
-    .att('xsi:schemaLocation',
-      'http://www.topografix.com/GPX/1/1 ' +
-      'http://www.topografix.com/GPX/1/1/gpx.xsd ' +
-      'http://www.garmin.com/xmlschemas/GpxExtensions/v3 ' +
-      'http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd ' +
-      'http://www.garmin.com/xmlschemas/TrackPointExtension/v1 ' +
-      'http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd'
-    );
+  const xmlDoc = document.implementation.createDocument(null, 'gpx');
+
+  function addTextNode(parent, tag, text) {
+    const element = xmlDoc.createElement(tag);
+    element.appendChild(xmlDoc.createTextNode(text));
+    return parent.appendChild(element);
+  }
+
+  const gpx = xmlDoc.getElementsByTagName('gpx')[0];
+  gpx.setAttribute('creator', creator)
+  gpx.setAttribute('version', '1.1')
+  gpx.setAttribute('xmlns', 'http://www.topografix.com/GPX/1/1')
+  gpx.setAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance')
+  gpx.setAttribute('xsi:schemaLocation',
+    'http://www.topografix.com/GPX/1/1 ' +
+    'http://www.topografix.com/GPX/1/1/gpx.xsd ' +
+    'http://www.garmin.com/xmlschemas/GpxExtensions/v3 ' +
+    'http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd ' +
+    'http://www.garmin.com/xmlschemas/TrackPointExtension/v1 ' +
+    'http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd'
+  );
 
   // Add a `<metadata>` element to `<gpx>`. `<metadata>` gets a nested `<name>` element, and a
   // nested `<time>` element if the `startTime` setting exists.
-  const metadata = gpx.ele('metadata');
-  metadata.ele('name', 'Activity');
+  const metadata = gpx.appendChild(xmlDoc.createElement('metadata'));
+  addTextNode(metadata, 'name', 'Activity');
   if (startTime) {
     const formattedStartTime = (startTime instanceof Date) ? startTime.toISOString() : startTime;
-    metadata.ele('time', formattedStartTime);
+    addTextNode(metadata, 'time', formattedStartTime);
   }
 
   // Add a `<trk>` element to `<gpx>`. `<trk>` gets a nested `<name>` element if the `activityName`
   // setting exists.
-  const trk = gpx.ele('trk');
+  const trk = gpx.appendChild(xmlDoc.createElement('trk'));
   if (activityName) {
-    trk.ele('name', activityName);
+    addTextNode(trk, 'name', activityName);
   }
 
   // Add a `<trkseg>` element to `<trk>`.
-  const trkseg = trk.ele('trkseg');
+  const trkseg = trk.appendChild(xmlDoc.createElement('trkseg'));
 
   // Loop through the waypoints and ensure that each one has a key for both latitude and longitude
   // (as defined by the `latKey` and `lonKey` settings).
@@ -130,43 +133,38 @@ export default function createGpx(waypoints, options = {}) {
     // For every waypoint, add a `<trkpt>` element with a `lat` and `lon` attribute to `<trkseg>`.
     // Other elements (elevation, time, course, speed, hdop, vdop) are added if
     // the point has a corresponding key for each (as defined by the `eleKey` etc settings)
-    const trkpt = trkseg
-      .ele('trkpt')
-      .att('lat', point[latKey])
-      .att('lon', point[lonKey]);
+    const trkpt = trkseg.appendChild(xmlDoc.createElement('trkpt'));
+    trkpt.setAttribute('lat', point[latKey]);
+    trkpt.setAttribute('lon', point[lonKey]);
     if ({}.hasOwnProperty.call(point, courseKey)) {
-      trkpt.ele('course', point[courseKey]);
+      addTextNode(trkpt, 'course', point[courseKey]);
     }
     if ({}.hasOwnProperty.call(point, eleKey)) {
-      trkpt.ele('ele', point[eleKey]);
+      addTextNode(trkpt, 'ele', point[eleKey]);
     }
     if ({}.hasOwnProperty.call(point, hdopKey)) {
-      trkpt.ele('hdop', point[hdopKey]);
+      addTextNode(trkpt, 'hdop', point[hdopKey]);
     }
     if ({}.hasOwnProperty.call(point, speedKey)) {
-      trkpt.ele('speed', point[speedKey]);
+      addTextNode(trkpt, 'speed', point[speedKey]);
     }
     if ({}.hasOwnProperty.call(point, vdopKey)) {
-      trkpt.ele('vdop', point[vdopKey]);
+      addTextNode(trkpt, 'vdop', point[vdopKey]);
     }
     if ({}.hasOwnProperty.call(point, timeKey)) {
       const pointTime = point[timeKey];
       const formattedPointTime = (pointTime instanceof Date) ? pointTime.toISOString() : pointTime;
-      trkpt.ele('time', formattedPointTime);
+      addTextNode(trkpt, 'time', formattedPointTime);
     }
     if ({}.hasOwnProperty.call(point, extKey)) {
-      const extensions = trkpt.ele('extensions').ele('gpxtpx:TrackPointExtension');
+      const extensions = trkpt.appendChild(xmlDoc.createElement('extensions'));
+      const gpxtpxExtensions = extensions.appendChild(xmlDoc.createElement('gpxtpx:TrackPointExtension'));
       Object.keys(point[extKey]).forEach((ext) => {
-        extensions.ele(`gpxtpx:${ext}`, point[extKey][ext]);
+        addTextNode(gpxtpxExtensions, `gpxtpx:${ext}`, point[extKey][ext]);
       });
     }
   });
 
-  // Close the `<gpx>` element and pretty format it
-  return gpx.end({
-    allowEmpty: true,
-    indent: '  ',
-    newline: '\n',
-    pretty: true,
-  });
+  const serializer = new XMLSerializer();
+  return `<?xml version="1.0" encoding="UTF-8"?>${serializer.serializeToString(xmlDoc)}`;
 }

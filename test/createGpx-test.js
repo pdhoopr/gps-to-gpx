@@ -199,7 +199,7 @@ describe('createGpx', () => {
 
     waypoints.forEach((point) => {
       const regex = new RegExp(
-        `<trkpt lat="${point.latitude}" lon="${point.longitude}">[\\s\\S]*</trkpt>`
+        `<trkpt lat="${point.latitude}" lon="${point.longitude}"/>`
       );
       const matches = gpx.match(regex);
 
