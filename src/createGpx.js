@@ -94,7 +94,7 @@ export default function createGpx(waypoints, options = {}) {
   // Add a `<metadata>` element to `<gpx>`. `<metadata>` gets a nested `<name>` element, and a
   // nested `<time>` element if the `startTime` setting exists.
   const metadata = gpx.ele('metadata');
-  metadata.ele('name', 'Activity');
+  metadata.ele('name', activityName || 'Activity');
   if (startTime) {
     const formattedStartTime = (startTime instanceof Date) ? startTime.toISOString() : startTime;
     metadata.ele('time', formattedStartTime);
