@@ -52,7 +52,7 @@ export default function createGpx(waypoints, options = {}) {
 
   // Define default settings and merge in any user-defined options that override the defaults.
   const defaultSettings = {
-    activityName: "Everyday I'm hustlin'",
+    activityName: 'Activity',
     creator: 'Patrick Hooper',
     courseKey: 'course',
     eleKey: 'elevation',
@@ -94,7 +94,7 @@ export default function createGpx(waypoints, options = {}) {
   // Add a `<metadata>` element to `<gpx>`. `<metadata>` gets a nested `<name>` element, and a
   // nested `<time>` element if the `startTime` setting exists.
   const metadata = gpx.ele('metadata');
-  metadata.ele('name', activityName || 'Activity');
+  metadata.ele('name', activityName || defaultSettings.activityName);
   if (startTime) {
     const formattedStartTime = (startTime instanceof Date) ? startTime.toISOString() : startTime;
     metadata.ele('time', formattedStartTime);

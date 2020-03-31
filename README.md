@@ -31,7 +31,7 @@ You might have JSON data that looks like this:
 }
 ```
 
-Let's assume the JSON data above has been saved to a `data` variable and you're using ES2015 (if you're using another environment, you can find the appropriate steps in the [installation instructions](#installation)). Now you can `import` the default top-level `createGpx` function and call it like so :
+Let's assume the JSON data above has been saved to a `data` variable and you're using ES2015 (if you're using another environment, you can find the appropriate steps in the [installation instructions](#installation)). Now you can `import` the default top-level `createGpx` function and call it like so:
 
 ```javascript
 import createGpx from 'gps-to-gpx';
@@ -50,7 +50,7 @@ For all your hard work, you'll be rewarded with GPX output in your console that 
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx creator="Patrick Hooper" version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
   <metadata>
-    <name>Activity</name>
+    <name>RUN</name>
     <time>2016-07-06T12:36:00Z</time>
   </metadata>
   <trk>
@@ -107,14 +107,15 @@ createGpx(waypoints[, options])
 
 2. `options` (*object*): Optional. An object literal of options that customize/override the default library settings. If any options are omitted, the settings will use the default values listed below:
 
-  - `activityName`: "Everyday I'm hustlin'"
-  - `creator`: 'Patrick Hooper'
+  - `activityName`: 'Activity'
   - `eleKey`: 'elevation'
   - `extKey`: 'extensions'
+  - `hdopKey`: 'hdop'
   - `latKey`: 'latitude'
   - `lonKey`: 'longitude'
   - `startTime`: `null`
   - `timeKey`: 'time'
+  - `vdopKey`: 'vdop'
 
 ### Returns
 

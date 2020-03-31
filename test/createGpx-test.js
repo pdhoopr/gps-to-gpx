@@ -99,9 +99,25 @@ describe('createGpx', () => {
     })).to.match(/<gpx.*creator="Joe Cool".*>[\s\S]*<\/gpx>/);
   });
 
-  it('should add a `<metadata>` element with name as "Activity"', () => {
+  it('should add a `<metadata>` element with the `<name>` element as default `activityName`', () => {
     expect(createGpx(waypoints)).to.match(
       /<metadata>[\s\S]*<name>Activity<\/name>[\s\S]*<\/metadata>/
+    );
+  });
+
+  it('should add a `<metadata>` element with the `<name>` element as default `activityName` when `activityName` is `null`', () => {
+    expect(createGpx(waypoints, {
+      activityName: null,
+    })).to.match(
+      /<metadata>[\s\S]*<name>Activity<\/name>[\s\S]*<\/metadata>/
+    );
+  });
+
+  it('should add a `<metadata>` element with `<name>` element as `activityName` if not `null`', () => {
+    expect(createGpx(waypoints, {
+      activityName: 'RUN',
+    })).to.match(
+      /<metadata>[\s\S]*<name>RUN<\/name>[\s\S]*<\/metadata>/
     );
   });
 
@@ -133,7 +149,7 @@ describe('createGpx', () => {
 
   it('should add a `<trk>` element with the `<name>` element as default `activityName`', () => {
     expect(createGpx(waypoints)).to.match(
-      /<trk>[\s\S]*<name>Everyday I'm hustlin'<\/name>[\s\S]*<\/trk>/
+      /<trk>[\s\S]*<name>Activity<\/name>[\s\S]*<\/trk>/
     );
   });
 
