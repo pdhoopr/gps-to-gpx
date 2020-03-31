@@ -2,6 +2,10 @@
 
 This project uses [Semantic Versioning](http://semver.org/). All releases are documented both on the GitHub [releases page](https://github.com/pdhoopr/gps-to-gpx/releases) and in this file.
 
+## v1.5.0 (March 31, 2020)
+
+This release uses the value of `activityName` setting, if provided, in the metadata of the GPX output.
+
 ## v1.4.0 (August 7, 2018)
 
 This release allows a user to add 4 new optional elements (`course`, `hdop`, `speed`, `vdop`) to a waypoint.
