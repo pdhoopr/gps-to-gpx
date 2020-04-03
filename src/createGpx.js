@@ -81,14 +81,16 @@ export default function createGpx(waypoints, options = {}) {
     .att('creator', creator)
     .att('version', '1.1')
     .att('xmlns', 'http://www.topografix.com/GPX/1/1')
+    .att('xmlns:gpxx', 'http://www.garmin.com/xmlschemas/GpxExtensions/v3')
+    .att('xmlns:gpxtpx', 'http://www.garmin.com/xmlschemas/TrackPointExtension/v2')
     .att('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance')
     .att('xsi:schemaLocation',
       'http://www.topografix.com/GPX/1/1 ' +
       'http://www.topografix.com/GPX/1/1/gpx.xsd ' +
       'http://www.garmin.com/xmlschemas/GpxExtensions/v3 ' +
       'http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd ' +
-      'http://www.garmin.com/xmlschemas/TrackPointExtension/v1 ' +
-      'http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd'
+      'http://www.garmin.com/xmlschemas/TrackPointExtension/v2 ' +
+      'http://www.garmin.com/xmlschemas/TrackPointExtensionv2.xsd'
     );
 
   // Add a `<metadata>` element to `<gpx>`. `<metadata>` gets a nested `<name>` element, and a
