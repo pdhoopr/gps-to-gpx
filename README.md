@@ -121,6 +121,30 @@ createGpx(waypoints[, options])
 
 (*string*): A GPX (a form of XML) string composed of the given waypoints and options.
 
+## Extensions
+
+Some pieces of data do not map to an appropriate element in the official GPX 1.1 spec, such as speed. This data can be added via extensions. This library affords you the use of Garmin's track point extensions (`atemp`, `wtemp`, `depth`, `hr`, `cad`, `speed`, `course`, `bearing`). To use them, add an extensions object with keys named exactly as the track point extension(s) you want to use to the points in your waypoints array. So, for example, adding speed to the original JSON data from above might look like this:
+
+```json
+{
+  "activityType": "RUN",
+  "startTime": "2016-07-06T12:36:00Z",
+  "waypoints": [
+    {
+      "latitude": 26.852324,
+      "longitude": -80.08045,
+      "elevation": 0,
+      "time": "2016-07-06T12:36:00Z",
+      "extensions": {
+        "speed": 5
+      }
+    }
+  ]
+}
+```
+
+Note that we added an object called `extensions` to the waypoint. This is customizable via the `extKey` setting passed to the `createGpx` function; "extensions" is just the default value. Also note that we used a key literally called `speed` to match the exact name of the Garmin extension. This is _not_ customizable.
+
 ## Examples
 
 If you're not sure where to start with the GPS to GPX library, maybe the example(s) below can help:
