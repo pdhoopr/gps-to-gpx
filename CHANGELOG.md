@@ -1,6 +1,17 @@
-# Change Log
+# Changelog
 
 This project uses [Semantic Versioning](http://semver.org/). All releases are documented both on the GitHub [releases page](https://github.com/pdhoopr/gps-to-gpx/releases) and in this file.
+
+## v1.5.1 (April 3, 2020)
+
+This release uses more valid values for some GPX attributes:
+
+- `creator`: default value is set to more helpful info specific to this library (name and website)
+- `xmlns:gpxx`: adds a namespace for the Garmin GPX extensions
+- `xmlns:gpxtpx`: adds a namespace for the Garmin GPX track point extensions
+- `xsi:schemaLocation`: has the correct values for the various schemas used in the generated output
+
+Documentation about using extensions has also been added.
 
 ## v1.5.0 (March 31, 2020)
 
