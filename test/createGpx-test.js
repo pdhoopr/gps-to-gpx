@@ -90,7 +90,7 @@ describe('createGpx', () => {
   });
 
   it('should add a `<gpx>` element with the default `creator`', () => {
-    expect(createGpx(waypoints)).to.match(/<gpx.*creator="Patrick Hooper".*>[\s\S]*<\/gpx>/);
+    expect(createGpx(waypoints)).to.match(/<gpx.*creator="GPS to GPX \(https:\/\/npm.im\/gps-to-gpx\)".*>[\s\S]*<\/gpx>/);
   });
 
   it('should add a `<gpx>` element with the provided `creator`', () => {
