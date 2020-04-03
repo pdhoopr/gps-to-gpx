@@ -53,7 +53,7 @@ export default function createGpx(waypoints, options = {}) {
   // Define default settings and merge in any user-defined options that override the defaults.
   const defaultSettings = {
     activityName: 'Activity',
-    creator: 'Patrick Hooper',
+    creator: 'GPS to GPX (https://npm.im/gps-to-gpx)',
     courseKey: 'course',
     eleKey: 'elevation',
     extKey: 'extensions',
